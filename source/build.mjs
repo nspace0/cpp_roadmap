@@ -1,0 +1,20 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const req=createRequire(import.meta.url);
+// The override is used only to reuse an installed build tool; not needed for npm run build.
+const {build}=await import(process.env.ROADMAP_ESBUILD_MODULE||'esbuild');
+const doc=await fs.readFile(path.join(root,'assets/C_CPP_roadmap.docx'));
+await fs.writeFile(path.join(root,'app/assets-inline.ts'),'export const documentUrl='+JSON.stringify('data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,'+doc.toString('base64'))+';\n');
+const result=await build({entryPoints:[path.join(root,'main.tsx')],absWorkingDir:root,bundle:true,write:false,format:'iife',platform:'browser',target:['es2020'],minify:true,legalComments:'inline',jsx:'automatic',tsconfig:path.join(root,'tsconfig.json'),define:{'process.env.NODE_ENV':'"production"'},metafile:true});
+const js=result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script');
+const css=(await fs.readFile(path.join(root,'assets/styles.css'),'utf8'))+'\n'+await fs.readFile(path.join(root,'assets/offline.css'),'utf8');
+const icon='data:image/svg+xml,'+encodeURIComponent(await fs.readFile(path.join(root,'assets/favicon.svg'),'utf8'));
+const seed={format:'cpp-roadmap-progress',version:1,exportedAt:new Date().toISOString(),entries:[]};
+const html=`<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'"><title>C++ Roadmap — автономная карта</title><link rel="icon" href="${icon}"><style id="roadmap-styles">${css}</style></head><body><div id="root"></div><noscript>Для карты нужен JavaScript. Интернет и аккаунт не нужны.</noscript><script id="roadmap-seed" type="application/json">${JSON.stringify(seed)}</script><script id="roadmap-app">${js}</script></body></html>`;
+await fs.mkdir(path.join(root,'dist'),{recursive:true});
+await fs.writeFile(path.join(root,'dist/C_CPP_Roadmap_Offline.html'),html);
+await fs.writeFile(path.join(root,'dist/build-meta.json'),JSON.stringify(result.metafile));
+console.log(`Built ${Buffer.byteLength(html)} bytes: dist/C_CPP_Roadmap_Offline.html`);

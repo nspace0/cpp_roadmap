@@ -1,0 +1,22 @@
+import raw from '@/data/roadmap.json';
+export type Topic={code:string,title:string,details:string,level:string,theory:number[],practice:number[],leisure:boolean};
+export type Mod={id:string,title:string,need:string,goal:string,rows:Topic[],checks:string[],task:string,sources:string,group:string,total:number[],theory:number[],practice:number[]};
+export type Entry={id:string,status:number,notes:string,updated_at:string};
+export type Update={id:string,status?:number,notes?:string};
+export type Row=[string|null,string|null,string|null];
+export type Section={label:string,rows:Row[],labels?:string[]};
+export const modules=raw.modules as Mod[],byId=Object.fromEntries(modules.map(m=>[m.id,m]));
+export const allTopics=modules.flatMap(m=>m.rows.map(t=>({...t,moduleId:m.id})));
+export const range=(v:number[])=>v[0]===v[1]?`${v[0]}`:`${v[0]}–${v[1]}`;
+export const difficulty:Record<string,string>={'Л':'Легко','С':'Средне','Т':'Сложно'};
+const sequence=(ids:string[]):Row[]=>ids.map(id=>[null,id,null]);
+export const routes=[{id:'exam',title:'К отбору',sub:'БЮРО 1440 · май 2027'},{id:'base',title:'База C++',sub:'Junior и junior+'},{id:'middle',title:'Рост до middle',sub:'Самостоятельная разработка'},{id:'branches',title:'Специализации',sub:'Сети, Qt, embedded и другие'},{id:'senior',title:'Рост до senior',sub:'Архитектура и ответственность'},{id:'all',title:'Вся карта',sub:'65 модулей · 344 темы'}];
+export const exam:Section={label:'От первых задач до пробного отбора',labels:['База и практика','Основная ветка C++','ЦОС и СВЧ'],rows:[['1','0','B1'],['C1','6','B2'],['A3','C2','B3'],['2','3','B4'],['5','4','B5'],['E','9','B6'],['U1','8','B7'],['G','L1','B8'],['7','W2','B9'],['P1','10',null]]};
+export const baseSections:Section[]=[{label:'Программная база',labels:['Углубление и практика','Рекомендуемый порядок','Инструменты и окружение'],rows:[[null,'0','1'],['C1','6','C2'],['A3','3','2'],['5','4',null],['U1','8','9'],['L1','W2','7'],['G','10','E']]}];
+export const middleSections:Section[]=[{label:'Общая инженерная база',labels:['Параллельно','Работа с компонентом','По мере развития проекта'],rows:[['M2','M1','M10'],[null,'M3','M5'],[null,'M4','M7'],[null,'M6',null],[null,'M8',null],[null,'M9',null]]}];
+export const branchSections:Section[]=[{label:'Сетевое ПО и оборудование',rows:sequence(['N1','N2','N3','N4','N5'])},{label:'Windows и Qt',rows:sequence(['W1','W2','W3'])},{label:'Embedded, электроника и RTOS',rows:[['E','H1',null],['Q1','H2',null],[null,'H3',null],[null,'H4',null]]},{label:'Ядро Linux и драйверы',rows:sequence(['K1','K2','K3'])},{label:'Архитектура ПК и цифровая логика',rows:sequence(['P1','A1','A2'])},{label:'ROS 2',rows:sequence(['R1','R2'])},{label:'ЦОС и радиоприём',rows:[['F1','D1',null],[null,'D2',null]]}];
+export const seniorSections:Section[]=[{label:'От компонента к ответственности за систему',rows:[['T1','S1',null],[null,'S2',null],[null,'S3',null]]}];
+export function getSections(route:string):Section[]{return route==='exam'?[exam]:route==='base'?baseSections:route==='middle'?middleSections:route==='branches'?branchSections:route==='senior'?seniorSections:[...baseSections,{label:'Подготовка по ЦОС и СВЧ',rows:sequence(['B1','B2','B3','B4','B5','B6','B7','B8','B9'])},...middleSections,...branchSections,...seniorSections]}
+export const names:Record<string,string>={'0':'Окружение и инструменты','1':'C и работа с памятью','2':'Как исполняется программа','3':'Структуры данных и алгоритмы','4':'Linux и системное ПО','5':'Сети и протоколы','6':'Основы современного C++','7':'Библиотека и качество кода','8':'Сокеты Windows и Linux','9':'Потоки и синхронизация','10':'Выпуск и проверка готовности','C1':'C++11/14 для отбора','C2':'Стандартные библиотеки','A3':'Алгоритмы на отборе','L1':'Legacy и документация','B1':'Математика для радиосвязи','B2':'Сигналы и спектральный анализ','B3':'QPSK и фильтрация','B4':'Анализ записи IQ','B5':'Бюджет радиоканала','B6':'Цепи и основы СВЧ','B7':'Линии и S-параметры','B8':'Модель усилителя','B9':'Стандарты беспроводной связи','W2':'Qt и отзывчивый интерфейс'};
+const sourceDefaults:Record<string,number[]>={'0':[11,12,13,29],'1':[1,2],'2':[6],'3':[3,52],'4':[7,8],'5':[9,21,22,23],'6':[3,4],'7':[5,4,14,12],'8':[8,10,13],'9':[7,4,17],'10':[28]};
+export function sourcesFor(m:Mod){const ids=new Set(sourceDefaults[m.id]||[]);for(const r of m.sources.matchAll(/R(\d+)(?:[–−-]R?(\d+))?/g)){for(let i=+r[1];i<=+(r[2]||r[1]);i++)ids.add(i)}return raw.sources.filter(s=>ids.has(+s.id.slice(1)))}
