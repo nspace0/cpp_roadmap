@@ -11,6 +11,7 @@ export type Lesson = {
  questions:{question:string;answer:string}[];
  pitfalls:string[];
  resources:Resource[];
+ related?:string[];
 };
 export type ModuleLesson = {orientation:string;capstone:string;readyWhen:string[]};
 export const lessons=content as Record<string,Lesson>;
