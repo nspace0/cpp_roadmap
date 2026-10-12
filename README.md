@@ -3,6 +3,8 @@ cpp-roadmap
 
 https://nspace0.github.io/cpp_roadmap/C_CPP_Roadmap_Offline.html
 
+https://nspace0.github.io/cpp_roadmap/development/
+
 ## Карта и встроенный учебник
 
 75 модулей и 381 тема: от подготовки к отбору на C++ до системной разработки, Qt, сетей, электроники, ЦОС и инженерной ответственности за систему.
