@@ -1,0 +1,17 @@
+export const BASE='https://nspace0.github.io/cpp_roadmap/';
+export const GROUPS=[{id:'science',title:'Науки и исследование'},{id:'engineering',title:'Программирование и инженерная база'},{id:'observatory',title:'Собственный радиотелескоп'}];
+export const MAPS=[
+ {id:'math',title:'Математика',path:'math/',group:'science',prefix:'MA',description:'От диагностики базы и доказательств до анализа, вероятности, вычислений и сигналов. Чистая математика видна отдельными ветками.',baseline:'Фундаментальная и прикладная ветки. Исходная карта Talal Alrawajfeh учтена в отдельной сверке покрытия.'},
+ {id:'physics',title:'Физика',path:'physics/',group:'science',prefix:'PH',description:'Механика, поля, волны, термодинамика и современная физика. Расчёт, эксперимент и пределы модели в каждой задаче.',baseline:'Измерения и модели → классическая физика → современная физика → направления углубления.'},
+ {id:'history',title:'История',path:'history/',group:'science',prefix:'HI',description:'Исторический метод, мировые и региональные процессы, источники и объяснения. От анализа свидетельства до собственного исследования.',baseline:'Самостоятельное направление: хронология, источники, сопоставление объяснений и исследовательская работа.'},
+ {id:'astronomy',title:'Астрономия и космос',path:'astronomy/',group:'science',prefix:'AS',description:'Наблюдения, звёзды и галактики, космология, радиоастрономия и отдельная ветка космической техники.',baseline:'Наблюдательная астрономия, астрофизика, космология и космонавтика — связанные, но разные ветки.'},
+ {id:'cpp',title:'C / C++',path:'',group:'engineering',description:'Язык, Linux, сборка и отладка, сети, Qt и системные специализации. Учебник и границы каждой темы.'},
+ {id:'nms',title:'Разработка NMS',path:'development/',group:'engineering',description:'От первого CLI до карты сети, проверок устройств, GUI, упаковки и эксплуатации.'},
+ {id:'ros',title:'ROS 2',path:'ros/',group:'engineering',prefix:'R',description:'Граф ROS, симуляция, управление, восприятие, навигация и интеграция. Задания буткемпа сверяются отдельно.',baseline:'Ubuntu 24.04 · ROS 2 Jazzy · Gazebo Harmonic · C++17. Устаревшие задания курса сверяются отдельно.'},
+ {id:'electronics',title:'Электротехника',path:'electronics/',group:'engineering',prefix:'E',description:'Расчёт, симуляция и реальные измерения, схемы и платы, ESP32, Arduino и STM32.',baseline:'Расчёт и симуляция → безопасный низковольтный стенд → схемы и платы → микроконтроллеры.'},
+ {id:'radiotelescope',title:'Радиотелескоп',path:'radiotelescope/',group:'observatory',prefix:'RT',description:'От научного вопроса и оценки площадки до приёмного тракта, калибровки и воспроизводимого радионаблюдения.',baseline:'Приёмный инструмент. Выбор аппаратуры после оценки задачи, площадки, помех и бюджета.'},
+ {id:'radio-software',title:'ПО радиотелескопа',path:'radio-software/',group:'observatory',prefix:'RS',description:'C++20, CLI и Qt: воспроизведение I/Q, спектральный анализ, калибровка, научные файлы и подключение приёмника.',baseline:'Windows и Linux · C++20 · CMake · Qt 6. Начало на искусственных сигналах и записях, затем реальное устройство.'}
+];
+export const COURSES=MAPS.filter(m=>m.prefix);
+export function mapUrl(id,lesson){const map=MAPS.find(m=>m.id===id);return map?BASE+map.path+(lesson?'#lesson='+encodeURIComponent(lesson):''):null;}
+export function storageKey(id){return id==='cpp'?'cpp-roadmap-offline-v1':id==='nms'?'nms-development-roadmap-v1':'hands-on-'+id+'-v1';}

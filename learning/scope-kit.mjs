@@ -1,5 +1,5 @@
-export const MAPS=[{id:'cpp',title:'C / C++',path:''},{id:'nms',title:'Разработка NMS',path:'development/'},{id:'ros',title:'ROS 2',path:'ros/'},{id:'electronics',title:'Электротехника',path:'electronics/'}];
-export const BASE='https://nspace0.github.io/cpp_roadmap/';
+import {MAPS,BASE,GROUPS} from './catalog.mjs';
+export {MAPS,BASE};
 const priorities={core:'Нужно для основы',later:'Следующее углубление',specialist:'По специализации'};
 export const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function freshScope(map){return {format:'roadmap-scope',version:1,map,custom:[],entries:{}};}
@@ -21,8 +21,9 @@ export function mountScope(config){
  if(document.getElementById('atlas-scope'))return;
  const key='roadmap-scope-'+config.id+'-v1',data=config.data;let state=freshScope(config.id),storageError='',tab='gaps',query='',filter='all',onlyNeeded=false,onlyUnfinished=false;
  try{const s=localStorage.getItem(key);if(s)state=validateScope(JSON.parse(s),config.id,data.gaps);}catch{storageError='Не удалось прочитать локальные пробелы. Сохранённый файл не перезаписан; импортируй резервную копию.';}
- const nav=document.createElement('nav');nav.className='atlas-nav';nav.setAttribute('aria-label','Учебные карты');nav.innerHTML=`<a class="atlas-home" href="${BASE}maps/">Все карты</a>${MAPS.map(m=>`<a ${m.id===config.id?'aria-current="page"':''} href="${BASE+m.path}">${m.title}</a>`).join('')}<button type="button" data-atlas-open>Что ещё изучить</button>`;
+ const nav=document.createElement('nav');nav.className='atlas-nav';nav.setAttribute('aria-label','Учебные карты');nav.innerHTML=`<a class="atlas-home" href="${BASE}maps/">Все карты</a><label class="atlas-map-switch">Открытая карта<select aria-label="Перейти к другой карте" data-atlas-map>${GROUPS.map(g=>`<optgroup label="${esc(g.title)}">${MAPS.filter(m=>m.group===g.id).map(m=>`<option value="${m.id}" ${m.id===config.id?'selected':''}>${esc(m.title)}</option>`).join('')}</optgroup>`).join('')}</select></label><button type="button" data-atlas-open>Что ещё изучить</button>`;
  document.body.prepend(nav);
+ nav.querySelector('[data-atlas-map]').addEventListener('change',e=>{const m=MAPS.find(m=>m.id===e.target.value);if(m)window.location.href=BASE+m.path;});
  const dialog=document.createElement('dialog');dialog.id='atlas-scope';dialog.className='atlas-dialog';dialog.setAttribute('aria-labelledby','atlas-title');document.body.append(dialog);
  const getGaps=()=>[...data.gaps,...state.custom];
  const progress=g=>state.entries[g.id]||{needed:g.priority==='core',verified:false,evidence:''};
