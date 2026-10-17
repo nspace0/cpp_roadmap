@@ -1,0 +1,74 @@
+import {createCourse,statuses} from './course-core.mjs';
+import {mountScope,esc,download} from './scope-kit.mjs';
+const data=JSON.parse(document.getElementById('course-data').textContent),scope=JSON.parse(document.getElementById('scope-data').textContent),key='hands-on-'+data.id+'-v1';
+const $=id=>document.getElementById(id),list=xs=>'<ul>'+xs.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>',para=x=>(Array.isArray(x)?x:[x]).filter(Boolean).map(p=>'<p>'+esc(typeof p==='string'?p:JSON.stringify(p))+'</p>').join('');
+let seed=null,loadWarning='';try{const s=localStorage.getItem(key);if(s)seed=JSON.parse(s);}catch{loadWarning='Не удалось прочитать сохранение. Старые данные не удалены; можно импортировать резервный JSON.';}
+let engine;try{engine=createCourse(data,seed);}catch(e){engine=createCourse(data);loadWarning='Не удалось загрузить прогресс: '+e.message;}
+let view='map',module='',query='',filter='all',opened='',panel='theory';
+const priority={core:'Основная практика',extension:'Углубление',specialization:'Специализация',specialist:'Специализация'};
+const hours=l=>[l.theoryHours[0]+l.practiceHours[0],l.theoryHours[1]+l.practiceHours[1]],range=h=>h[0]===h[1]?''+h[0]:h[0]+'–'+h[1];
+function save(){try{localStorage.setItem(key,JSON.stringify(engine.export()));loadWarning='';}catch{loadWarning='Автосохранение недоступно: перед закрытием экспортируй прогресс JSON.';}$('saveNotice').textContent=loadWarning;window.dispatchEvent(new Event('roadmap:progress'));}
+function message(s){if($('lesson').open){$('lessonNotice').textContent=s;$('lessonNotice').hidden=false;}$('toast').textContent=s;$('toast').hidden=false;setTimeout(()=>$('toast').hidden=true,6000);}
+function row(l){const p=engine.progress(l.id);return `<button class="course-row" data-lesson="${esc(l.id)}"><span class="code">${esc(l.id)}</span><span><b>${esc(l.title)}</b><small>${esc(priority[l.priority]||l.priority)} · ${range(hours(l))} ч</small></span><span class="status s-${p.status}">${esc(statuses[p.status])}</span></button>`;}
+function render(){
+ const st=engine.stats(),current=engine.byId[engine.state.current];
+ $('current').innerHTML=`<span class="eyebrow">ТЕКУЩАЯ ЗАДАЧА · ${esc(current.id)}</span><h2>${esc(current.title)}</h2><p>${esc(statuses[engine.progress(current.id).status])}</p><button class="primary" data-lesson="${current.id}">Открыть задание →</button>`;
+ $('stats').innerHTML=`<div><b>${st.done} / ${st.total}</b><span>Заданий принято</span></div><div><b>${st.active}</b><span>В процессе</span></div><div><b>${Math.round(st.hours*10)/10} ч</b><span>Записано фактически</span></div><div><b>${data.gaps.length}</b><span>Направлений для углубления</span></div>`;
+ $('saveNotice').textContent=loadWarning;
+ document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(view===b.dataset.view)));
+ $('filterBar').hidden=!['map','list'].includes(view);
+ $('modules').innerHTML=`<button data-module="" class="${!module?'selected':''}">Все модули</button>`+data.modules.map(m=>`<button data-module="${esc(m.id)}" class="${module===m.id?'selected':''}"><b>${esc(m.id)}</b> ${esc(m.title)}<small>${m.lessonIds.filter(id=>engine.progress(id).status==='done').length} / ${m.lessonIds.length}</small></button>`).join('');
+ const q=query.trim().toLocaleLowerCase('ru'),filtered=data.lessons.filter(l=>(!module||l.module===module)&&(filter==='all'||filter==='todo'&&engine.progress(l.id).status!=='done'||engine.progress(l.id).status===filter)&&(!q||JSON.stringify(l).toLocaleLowerCase('ru').includes(q)));
+ if(view==='map')$('content').innerHTML=data.modules.filter(m=>!module||m.id===module).map(m=>{const ls=filtered.filter(l=>l.module===m.id);return ls.length?`<section class="module-block"><div class="module-heading"><span class="code">${esc(m.id)}</span><div><h2>${esc(m.title)}</h2><p>${esc(m.goal)}</p></div></div>${ls.map(row).join('')}</section>`:'';}).join('')||'<div class="empty">По этим условиям заданий нет.</div>';
+ if(view==='list')$('content').innerHTML=filtered.map(row).join('')||'<div class="empty">По этим условиям заданий нет.</div>';
+ if(view==='plan'){
+  const planned=engine.state.planned.map(id=>engine.byId[id]),budget=engine.state.hoursPerWeek,sum=planned.reduce((a,l)=>a.map((v,i)=>v+hours(l)[i]),[0,0]);
+  $('content').innerHTML=`<section class="paper"><h2>Ближайший план</h2><p>Добавляй задания из их карточек. Оценка включает чтение, эксперимент, самостоятельное решение и проверку; это не обязательство завершить всё за одну неделю.</p><label>Часов в неделю на выбранный маршрут<input id="weekBudget" type="number" min="1" max="60" value="${budget}"></label><p><b>${range(sum)} ч</b> в плане при бюджете ${budget} ч/нед. ${sum[0]>budget?'Раздели план на несколько недель.':'Оставь время на исправления.'}</p><p class="notice">Бюджет делится между всеми картами и курсами. Нельзя одновременно выделить одни и те же часы ROS, электротехнике и C++.</p>${planned.map(row).join('')||'<p>Выбери 1–3 ближайших задания.</p>'}<h3>Результат месяца</h3><p>Выбери один работающий результат: пакет ROS с тестами, измерительный стенд или завершённую схему. После двух недель скорректируй оценки по фактическому времени. Глубокие специализации планируются отдельно.</p></section>`;
+ }
+ if(view==='course'){
+  const rows=data.courseCrosswalk||[];
+  $('content').innerHTML=`<section class="paper"><h2>Связь с заданиями буткемпа</h2><p>Это учебная подготовка к исходным задачам. Выполнение карты не означает автоматическую сдачу буткемпа: нужны его актуальное условие, файлы схем, требуемая платформа и проверка по критериям.</p>${para(data.courseCrosswalkNotice)}${rows.length?rows.map(r=>`<article class="crosswalk"><h3>${esc(r.id||r.code||r.project)} · ${esc(r.title||'')}</h3>${para(r.requirements||r.summary||r.originalRequirements||r.requirement)}<p><b>Опора в карте:</b> ${(r.lessonIds||r.lessons||r.mappedLessons||[]).map(id=>engine.byId[id]?`<button class="text-button" data-lesson="${esc(id)}">${esc(id)}</button>`:esc(id)).join(' · ')}</p><p><b>Ещё проверить:</b> ${esc(Array.isArray(r.gaps)?r.gaps.join(' '):r.gaps||r.remaining||r.notes||'Сверить результат с исходными критериями и предъявить его проверяющему.')}</p><span class="tag">${esc(r.status||'Требует отдельной проверки')}</span></article>`).join(''):'<p>Точное соответствие требует исходных условий курса.</p>'}</section>`;
+ }
+}
+function scopeBlock(l){return `<section class="scope-boundary"><span class="scope-depth">Глубина: ${l.priority==='core'?'основное учебное применение':'выбранное углубление'}</span><h3>Границы этой задачи</h3><h4>После проверки умею</h4>${list(l.covered)}<h4>Эта задача ещё не покрывает</h4>${list(l.notCovered)}<h4>Следующий уровень</h4>${list(l.nextLevel)}<p class="scope-note">Закрытая карточка подтверждает только перечисленные навыки. Новый случай, реальные отказы и специфичная аппаратура требуют отдельной практики.</p><button data-scope>Открыть полный список пробелов →</button></section>`;}
+function renderLesson(){
+ const l=engine.byId[opened],p=engine.progress(opened),missing=l.prerequisites.filter(id=>engine.progress(id).status!=='done');
+ $('lessonTitle').textContent=l.id+' · '+l.title;
+ $('lessonMeta').textContent=`Теория ${range(l.theoryHours)} ч · практика ${range(l.practiceHours)} ч · ${priority[l.priority]||l.priority}`;
+ $('lessonTabs').innerHTML=['theory','practice','scope','result'].map((v,i)=>`<button data-panel="${v}" aria-pressed="${panel===v}">${['Теория и пример','Задание','Границы темы','Результат и заметки'][i]}</button>`).join('');
+ const deps=`<p class="prerequisites"><b>Перед началом:</b> ${l.prerequisites.length?l.prerequisites.map(id=>`<button data-lesson="${esc(id)}">${esc(id)} · ${esc(engine.byId[id]?.title||'')}</button>`).join(' '):'можно начинать сразу'}${missing.length?`<small>Ещё не приняты: ${missing.map(esc).join(', ')}.</small>`:''}</p>`;
+ let body='';
+ if(panel==='theory')body=`<h3>Разбираемся в теме</h3><div class="theory">${para(l.theory)}</div><h3>Пример или расчёт</h3><pre tabindex="0"><code>${esc(l.example.code)}</code></pre>${para(l.example.explanation)}<div class="notice"><b>Что наблюдать:</b> ${esc(Array.isArray(l.example.expected)?l.example.expected.join(' '):l.example.expected)}</div><h3>Первоисточники</h3><ul>${l.sources.map(id=>data.sources[id]).filter(Boolean).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a></li>`).join('')}</ul>${scopeBlock(l)}`;
+ if(panel==='practice')body=`<h3>Выполни самостоятельно</h3><ol>${l.practice.map(x=>'<li>'+esc(x)+'</li>').join('')}</ol><h3>Критерии результата</h3>${list(l.acceptance)}<h3>Объясни своими словами</h3>${list(l.defense)}<div class="notice">Принеси код или схему, команды проверки или измерения, ожидаемый и фактический результат, ответы на вопросы. После ревью исправь замечания.</div><button data-plan>${engine.state.planned.includes(l.id)?'Убрать из плана':'Добавить в план'}</button><button data-current>Сделать текущей</button>`;
+ if(panel==='scope')body=scopeBlock(l);
+ if(panel==='result')body=`<h3>Проверка выполнения</h3>${l.acceptance.map((x,i)=>`<label class="check"><input type="checkbox" data-check="${i}" ${p.checks.includes(i)?'checked':''} ${p.status==='done'?'disabled':''}>${esc(x)}</label>`).join('')}<label class="field">Результат ревью и доказательства<textarea id="evidence" maxlength="12000" ${p.status==='done'?'readonly':''} placeholder="Коммит, отчёт, условия измерения, замечания и исправления">${esc(p.evidence)}</textarea></label><label class="field">Статус<select id="lessonStatus">${Object.entries(statuses).map(([k,v])=>`<option value="${k}" ${p.status===k?'selected':''}>${v}</option>`).join('')}</select></label><p class="muted">Для «Принято» нужны отмеченные критерии, запись результата проверки и принятые предпосылки. Это ручной журнал; сообщения чата сюда автоматически не поступают.</p><label class="field">Рабочие заметки<textarea id="notes" maxlength="12000">${esc(p.notes)}</textarea></label><label class="field">Фактически потрачено часов<input id="spent" type="number" min="0" max="10000" step="0.25" value="${p.hours}"></label><button data-review-template>Скопировать шаблон отчёта</button>`;
+ $('lessonBody').innerHTML=deps+body;
+}
+function openLesson(id){if(!engine.byId[id])return;$('lessonNotice').hidden=true;opened=id;panel='theory';renderLesson();if(!$('lesson').open)$('lesson').showModal();try{history.replaceState(null,'','#lesson='+encodeURIComponent(id));}catch{}}
+function update(patch){try{engine.update(opened,patch);save();render();return true;}catch(e){message(e.message);return false;}}
+document.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.lesson)openLesson(b.dataset.lesson);
+ if(b.dataset.view){view=b.dataset.view;render();}
+ if(Object.hasOwn(b.dataset,'module')){module=b.dataset.module;view='map';render();}
+ if(b.dataset.panel){panel=b.dataset.panel;renderLesson();}
+ if(b.hasAttribute('data-lesson-close')){$('lesson').close();try{history.replaceState(null,'',location.pathname);}catch{}}
+ if(b.hasAttribute('data-scope')){$('lesson').close();window.dispatchEvent(new Event('roadmap:scope'));}
+ if(b.hasAttribute('data-plan')){const old=engine.state.planned;engine.edit({planned:old.includes(opened)?old.filter(id=>id!==opened):[...old,opened]});save();render();renderLesson();}
+ if(b.hasAttribute('data-current')){engine.edit({current:opened});save();render();message('Текущее задание: '+opened);}
+ if(b.id==='exportProgress')download(engine.export(),data.id+'-progress.json');
+ if(b.hasAttribute('data-review-template')){const l=engine.byId[opened],text=`Задание: ${l.id} — ${l.title}\nОкружение / схема / комплектующие:\nЧто сделал:\nКод, коммит или проект схемы:\nКоманды или измерения:\nОжидаемый и фактический результат:\nКритерии проверки:\nОтветы на вопросы:\nЧто осталось за границами:\nФактическое время:`;try{await navigator.clipboard.writeText(text);message('Шаблон скопирован.');}catch{message('Копирование недоступно. Запиши код задания, результат и проверки в отчёт.');}}
+});
+document.addEventListener('input',e=>{if(e.target.id==='search'){query=e.target.value;render();}if(e.target.id==='notes')update({notes:e.target.value});if(e.target.id==='evidence')update({evidence:e.target.value});});
+document.addEventListener('change',async e=>{
+ if(e.target.id==='statusFilter'){filter=e.target.value;render();}
+ if(e.target.id==='weekBudget'){try{engine.edit({hoursPerWeek:+e.target.value});save();render();}catch(err){message(err.message);}}
+ if(e.target.dataset.check!==undefined){const n=+e.target.dataset.check,p=engine.progress(opened),checks=e.target.checked?[...p.checks,n]:p.checks.filter(i=>i!==n);update({checks});}
+ if(e.target.id==='lessonStatus'){update({status:e.target.value});renderLesson();}
+ if(e.target.id==='spent')update({hours:+e.target.value});
+ if(e.target.id==='importProgress'){const f=e.target.files[0];if(!f)return;try{if(f.size>5e6)throw Error('Файл больше 5 МБ.');const clean=engine.validate(JSON.parse(await f.text()));if(!confirm('Заменить прогресс импортированным? Перед заменой будет сохранена резервная копия в браузере.'))return;try{localStorage.setItem(key+'-before-import',JSON.stringify(engine.export()));}catch{throw Error('Резервная копия не сохранилась. Экспортируй текущий прогресс и освободи хранилище.');}engine.import(clean);save();render();if(opened)renderLesson();message('Прогресс перенесён.');}catch(err){message('Импорт отменён: '+err.message);}finally{e.target.value='';}}
+});
+const total=data.lessons.reduce((a,l)=>a.map((v,i)=>v+hours(l)[i]),[0,0]),core=data.lessons.filter(l=>l.priority==='core'),coreHours=core.reduce((a,l)=>a.map((v,i)=>v+hours(l)[i]),[0,0]);
+$('orientation').innerHTML=`<p>Основная практика: <b>${core.length} заданий · ${range(coreHours)} ч</b>. Все задания карты: ${data.lessons.length} · ${range(total)} ч. Это оценки первой самостоятельной попытки; отдельные пробелы и специализации сверх карточек в сумму не входят.</p><p>Сначала пройди основную практику. Для буткемпа добавь связанные задания углубления из вкладки «Буткемп». Незнакомые предпосылки изучай до задачи; знакомые подтверждай практической проверкой.</p>`+(typeof data.baseline==='string'?para(data.baseline):Object.values(data.baseline||{}).filter(x=>typeof x==='string').map(x=>'<p>'+esc(x)+'</p>').join(''))+para(data.coveragePolicy?.hardwareRule)+para(data.coveragePolicy?.safetyBoundary)+para(data.coveragePolicy?.sourceLimit);
+mountScope({id:data.id,title:data.title,data:scope,status:id=>engine.progress(id).status==='done'?2:engine.progress(id).status==='todo'?0:1,openTopic:openLesson});
+render();const id=new URLSearchParams(location.hash.slice(1)).get('lesson');if(id)openLesson(id);
+window.addEventListener('hashchange',()=>{const id=new URLSearchParams(location.hash.slice(1)).get('lesson');if(id)openLesson(id);});
