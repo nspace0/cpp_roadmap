@@ -1,9 +1,7 @@
 # cpp_roadmap
 cpp-roadmap
 
-https://nspace0.github.io/cpp_roadmap/C_CPP_Roadmap_Offline.html
-
-https://nspace0.github.io/cpp_roadmap/development/
+https://nspace0.github.io/cpp_roadmap/maps/
 
 ## Все маршруты и границы знаний
 
