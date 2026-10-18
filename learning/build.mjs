@@ -1,3 +1,4 @@
+import {execFileSync} from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -11,6 +12,7 @@ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const safe=value=>JSON.stringify(value).replace(/</g,'\\u003c');
 async function bundle(entry){const result=await build({entryPoints:[path.join(root,entry)],bundle:true,write:false,format:'iife',platform:'browser',target:['es2020'],charset:'utf8',minify:true});return result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script');}
 const [app,scopeApp,hubApp,style,scopeStyle,template]=await Promise.all([bundle('course-app.js'),bundle('nms-scope-entry.js'),bundle('hub-app.js'),read('course.css'),read('scope-kit.css'),read('course-template.html')]);
+execFileSync('python3',[path.join(root,'developer-labs/build.py')],{stdio:'inherit'});
 const meta=[],courses={};
 await prepareCourseScopes();
 for(const map of COURSES){
@@ -18,8 +20,8 @@ for(const map of COURSES){
  const total=data.lessons.reduce((a,l)=>a.map((v,i)=>v+l.theoryHours[i]+l.practiceHours[i]),[0,0]);
  const description=typeof data.positioning==='string'?data.positioning:data.positioning.description||'Теория, самостоятельные задания, проверка результата и границы каждой темы.';
  let html=template;
- for(const [key,value] of Object.entries({PROJECT_LINK:['radiotelescope','radio-software'].includes(id)?'<div class="scope-invite"><b>Практическая сборка радиотелескопа:</b> конкретные модели, бюджет, чертежи, соединения, запись IQ и первое наблюдение. <a href="'+(id==='radiotelescope'?'build/':'../radiotelescope/build/')+'">Открыть руководство →</a></div>':'',TITLE:escape(data.title),SHORT_TITLE:escape(map.title.toLocaleUpperCase('ru')),DESCRIPTION:escape(description),BASELINE:escape(map.baseline),COUNT:data.lessons.length,MODULES:data.modules.length,CSS:style+'\n'+scopeStyle,DATA:safe(data),SCOPE:safe(scope),APP:app}))html=html.replaceAll('__'+key+'__',String(value));
- if(/__(TITLE|SHORT_TITLE|DESCRIPTION|BASELINE|COUNT|MODULES|CSS|DATA|SCOPE|APP)__/.test(html))throw Error('Unfilled placeholder '+id);
+ for(const [key,value] of Object.entries({PROJECT_LINK:['radiotelescope','radio-software'].includes(id)?'<div class="scope-invite"><b>Практическая сборка радиотелескопа:</b> конкретные модели, бюджет, чертежи, соединения, запись IQ и первое наблюдение. <a href="'+(id==='radiotelescope'?'build/':'../radiotelescope/build/')+'">Открыть руководство →</a></div>':['assembly','cpp-tools'].includes(id)?'<div class="scope-invite developer-invite"><b>Лаборатории и связанный маршрут.</b> <a href="../cpp-tools/labs.zip">Скачать примеры, памятку GDB и шаблон отчёта (ZIP)</a> · <a href="../'+(id==='assembly'?'cpp-tools':'assembly')+'/">'+(id==='assembly'?'Инструменты C/C++ и GDB':'Ассемблер x86-64')+' →</a></div>':'',UPDATED_AT:escape(data.updatedAt||'2026-10-17'),TITLE:escape(data.title),SHORT_TITLE:escape(map.title.toLocaleUpperCase('ru')),DESCRIPTION:escape(description),BASELINE:escape(map.baseline),COUNT:data.lessons.length,MODULES:data.modules.length,CSS:style+'\n'+scopeStyle,DATA:safe(data),SCOPE:safe(scope),APP:app}))html=html.replaceAll('__'+key+'__',String(value));
+ if(/__(PROJECT_LINK|UPDATED_AT|TITLE|SHORT_TITLE|DESCRIPTION|BASELINE|COUNT|MODULES|CSS|DATA|SCOPE|APP)__/.test(html))throw Error('Unfilled placeholder '+id);
  await fs.mkdir(path.join(repo,map.path),{recursive:true});await fs.writeFile(path.join(repo,map.path,'index.html'),html);
  meta.push({id,title:data.title,lessons:data.lessons.length,modules:data.modules.length,hours:total,gaps:data.gaps.length,bytes:Buffer.byteLength(html)});
 }

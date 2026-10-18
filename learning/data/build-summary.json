@@ -9,7 +9,7 @@
       822
     ],
     "gaps": 28,
-    "bytes": 457312
+    "bytes": 460072
   },
   {
     "id": "physics",
@@ -21,7 +21,7 @@
       484
     ],
     "gaps": 24,
-    "bytes": 393146
+    "bytes": 395906
   },
   {
     "id": "history",
@@ -33,7 +33,7 @@
       295
     ],
     "gaps": 26,
-    "bytes": 413350
+    "bytes": 416110
   },
   {
     "id": "astronomy",
@@ -45,7 +45,31 @@
       464
     ],
     "gaps": 25,
-    "bytes": 436850
+    "bytes": 439610
+  },
+  {
+    "id": "assembly",
+    "title": "Ассемблер x86-64: от регистра до проверенной библиотеки",
+    "lessons": 36,
+    "modules": 12,
+    "hours": [
+      180,
+      307
+    ],
+    "gaps": 12,
+    "bytes": 533216
+  },
+  {
+    "id": "cpp-tools",
+    "title": "Инструменты C/C++: сборка, GDB, диагностика и поставка",
+    "lessons": 42,
+    "modules": 14,
+    "hours": [
+      144,
+      270
+    ],
+    "gaps": 14,
+    "bytes": 579712
   },
   {
     "id": "ros",
@@ -57,7 +81,7 @@
       531
     ],
     "gaps": 21,
-    "bytes": 344887
+    "bytes": 347647
   },
   {
     "id": "electronics",
@@ -69,7 +93,7 @@
       570
     ],
     "gaps": 24,
-    "bytes": 364263
+    "bytes": 367023
   },
   {
     "id": "radiotelescope",
@@ -81,7 +105,7 @@
       442
     ],
     "gaps": 26,
-    "bytes": 343712
+    "bytes": 346472
   },
   {
     "id": "radio-software",
@@ -93,6 +117,6 @@
       503
     ],
     "gaps": 24,
-    "bytes": 328153
+    "bytes": 330913
   }
 ]

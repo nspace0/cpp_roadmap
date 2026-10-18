@@ -51,7 +51,7 @@ test('Existing C++ and NMS: every original topic retains identity and gets concr
 });
 test('Published standalone pages have intact data, parseable scripts, unique IDs and no private progress seed',()=>{
  for(const name of [...COURSES.map(c=>c.id),'development','maps']){
-  const html=fs.readFileSync(path.join(repo,name,'index.html'),'utf8');assert.ok(html.startsWith('<!doctype html>')||html.startsWith('<!DOCTYPE html>'));const scripts=[...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)];assert.ok(scripts.length>=(name==='maps'?2:3));assert.ok(!/__(TITLE|SHORT_TITLE|DESCRIPTION|BASELINE|COUNT|MODULES|CSS|DATA|SCOPE|APP|HUB_DATA|CARDS)__/.test(html),'Unfilled placeholder '+name);
+  const html=fs.readFileSync(path.join(repo,name,'index.html'),'utf8');assert.ok(html.startsWith('<!doctype html>')||html.startsWith('<!DOCTYPE html>'));const scripts=[...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)];assert.ok(scripts.length>=(name==='maps'?2:3));assert.ok(!/__(PROJECT_LINK|UPDATED_AT|TITLE|SHORT_TITLE|DESCRIPTION|BASELINE|COUNT|MODULES|CSS|DATA|SCOPE|APP|HUB_DATA|CARDS)__/.test(html),'Unfilled placeholder '+name);
   const shell=html.replace(/<script[^>]*>[\s\S]*?<\/script>/g,'').replace(/<style[^>]*>[\s\S]*?<\/style>/g,'');const elementIds=[...shell.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(elementIds).size,elementIds.length,'Duplicate static IDs in '+name);
   for(const [i,m] of scripts.entries()){if(m[1].includes('application/json'))JSON.parse(m[2]);else new vm.Script(m[2],{filename:name+'-'+i+'.js'});}
   for(const s of ['27 сентября ты сообщил','Visual Studio установлена','пользователь сообщил'])assert.ok(!html.includes(s));assert.ok(html.includes('Что ещё изучить'));
@@ -59,7 +59,7 @@ test('Published standalone pages have intact data, parseable scripts, unique IDs
 });
 test('Shared catalog keeps old progress keys and connects every map to the hub',()=>{
  assert.equal(storageKey('cpp'),'cpp-roadmap-offline-v1');assert.equal(storageKey('nms'),'nms-development-roadmap-v1');assert.equal(storageKey('ros'),'hands-on-ros-v1');assert.equal(storageKey('electronics'),'hands-on-electronics-v1');
- assert.equal(MAPS.length,10);assert.equal(new Set(MAPS.map(m=>m.id)).size,10);assert.equal(new Set(MAPS.map(m=>m.path)).size,10);
+ assert.equal(MAPS.length,12);assert.equal(new Set(MAPS.map(m=>m.id)).size,12);assert.equal(new Set(MAPS.map(m=>m.path)).size,12);
  const html=fs.readFileSync(path.join(repo,'maps/index.html'),'utf8');
  const data=JSON.parse(/<script id="hub-data" type="application\/json">([\s\S]*?)<\/script>/.exec(html)[1]);
  for(const map of MAPS){assert.ok(fs.existsSync(path.join(repo,map.path,'index.html')));assert.ok(html.includes('id="progress-'+map.id+'"'));assert.ok(html.includes('href="../'+map.path+'"'));}

@@ -104,7 +104,7 @@ python source/scripts/build-anki.py --source /path/to/C_C++.apkg --output /path/
 
 ## Сборка и обновление GitHub Pages
 
-Для локальной сборки нужен Node.js с npm. В каталоге `source`:
+Для локальной сборки нужны Node.js с npm и Python 3 (упаковка лабораторий). В каталоге `source`:
 
 ```sh
 npm install
@@ -112,10 +112,10 @@ npm run check
 npm run build
 cd ..
 node learning/build.mjs
-node --test learning/check.mjs
+node --test learning/check.mjs learning/check-developer-courses.mjs
 ```
 
-Первая сборка создаёт одинаковые `index.html` и `C_CPP_Roadmap_Offline.html` в корне репозитория и в `source/dist/`. GitHub Pages публикует ветку `main`, каталог `/ (root)`. Файл `.nojekyll` сохраняйте в корне. `learning/build.mjs` собирает общую страницу, восемь карт наук и практики и обновлённую NMS. Все страницы автономны; внешние источники и переходы к другим картам требуют сети.
+Первая сборка создаёт одинаковые `index.html` и `C_CPP_Roadmap_Offline.html` в корне репозитория и в `source/dist/`. GitHub Pages публикует ветку `main`, каталог `/ (root)`. Файл `.nojekyll` сохраняйте в корне. `learning/build.mjs` собирает общую страницу, десять карт наук и практики и обновлённую NMS. Все страницы автономны; внешние источники и переходы к другим картам требуют сети.
 
 Перед локальными изменениями подтяните актуальную ветку: `git pull --ff-only`. Если команда сообщает о расхождении истории, сначала разберите различия; не заменяйте рабочую ветку старой копией через force push.
 
@@ -160,3 +160,15 @@ PDF-оригиналы WVU закреплены на commit `b6b04cf5cd5d756ca60
 `learning/radio-build/data.json` содержит исходный текст, ведомость и первоисточники; `build.mjs` создаёт самостоятельную страницу. `radiotelescope/build/files/iq_spectrum.py` — потоковый эталон cu8/cf32_le → Hann PSD → CSV/PNG/JSON; он не объявляет пик обнаружением H I и не выполняет абсолютную калибровку. Проверки: `node learning/radio-build/check.mjs` и `python learning/radio-build/check_spectrum.py`. Для комплектного ZIP после сборки: `python learning/radio-build/package.py`.
 
 Ключ отметок `radio-build-progress-v1` и экспорт комплекта отдельны от основной карты. Старые ID, критерии и зависимости 36 заданий не менялись. Браузерная визуальная проверка в данной среде недоступна; SVG осмотрены отдельно, проверены данные, расчёты, импорты, скрипты и синтетический численный пример.
+
+## Ассемблер x86-64 и инструменты C/C++
+
+[Ассемблер](https://nspace0.github.io/cpp_roadmap/assembly/) — 36 уроков AX01–AX12. [Инструменты](https://nspace0.github.io/cpp_roadmap/cpp-tools/) — 42 урока CT01–CT14, из них 18 по GDB. [Архив лабораторий](https://nspace0.github.io/cpp_roadmap/cpp-tools/labs.zip) содержит 24 файла: CMake/CTest CLI, Linux GDB, пару NASM/MASM, памятку и шаблон отчёта.
+
+Каждый новый урок содержит связную теорию, пример с объяснением, словарь, пошаговый разбор, ошибки, самостоятельную практику, критерии, вопросы с раскрываемыми ответами и границы освоения. Основная практика отделена от углубления; в картах видны 26 дополнительных направлений. Этапы, первый вечер и ориентир первого месяца находятся в ориентации и вкладке этапов. Время — оценка практики, не гарантия профессионального уровня.
+
+Среды: Windows/MSVC/MASM/Visual Studio и Linux/WSL/Kubuntu/GCC/NASM/GDB. База — x86-64 i5-12400F; AVX-512 не требуется. Ninja-рецепты не требуют нового генератора VS; Visual Studio 18 2026 generator отдельно требует CMake 4.2+. Для MSVC/PDB предусмотрена собственная ветка, Linux GDB не объявляется её заменой.
+
+Данные: learning/data/assembly.json и cpp-tools.json. Дополнительные разделы урока: learning/lesson-extras.mjs. Источник архива: learning/data/developer-labs.json; learning/developer-labs/build.py создаёт детерминированный ZIP и вызывается общей сборкой. Стабильные ID и ключи старого прогресса сохранены.
+
+Проверка 18.10.2026: данные, зависимости, межкурсовые переходы, сохранение/импорт, экранирование новых блоков, синтаксис опубликованных страниц, Linux C/C++/NASM, CMake/CTest, намеренные дефекты и регрессии. GDB проверен статически; live ptrace запрещён средой. Windows/MSVC/MASM, VS/WinDbg, Docker, hosted CI и визуальная проверка в браузере здесь не выполнялись. Первоисточники и ограничения приведены рядом с соответствующей практикой.
