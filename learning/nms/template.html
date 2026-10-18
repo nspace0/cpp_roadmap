@@ -11,7 +11,8 @@
 @media(max-width:720px){.shell{display:block}.sidebar{display:none}.mobilebrand{display:block;font-weight:750}.main{padding:16px 15px 32px}.topbar{gap:12px;margin-bottom:24px}.crumb{display:none}.hero{gap:14px}.stagegrid,.skillgrid,.split{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat .value{font-size:23px}.taskrow{grid-template-columns:57px minmax(0,1fr);gap:9px;padding:13px}.taskright{grid-column:2;align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:12px}.dialoghead{padding:18px 17px 13px}.dialogbody{padding:16px 17px 23px}.dialoghead h2{font-size:20px}.dialogtabs .tab{font-size:13px;padding:8px 10px}.btn{min-height:40px}.milestones{grid-template-columns:repeat(2,minmax(0,1fr))}.planrow{align-items:flex-start}.panel{padding:17px}.filters{grid-template-columns:1fr}.filters .field:first-child{grid-column:auto}.topbar .actions{gap:5px}.topbar .btn{font-size:12px;padding:8px 10px}}
 @media(prefers-reduced-motion:no-preference){button,.btn{transition:background .14s,border-color .14s}.track span{transition:width .2s}}
 @media print{body{background:white;color:black}.shell,.toast{display:none}dialog[open]{position:static;display:block;width:100%;max-height:none;border:0;box-shadow:none;overflow:visible}.dialoghead{position:static}.dialogtabs,.close,.detailactions,.reviewbox select,button{display:none!important}.dialogsection[hidden]{display:block!important}.dialogbody{padding:0}.dialogsection{break-inside:avoid}a{color:black}.notice{border:0;background:none}.sources{font-size:11px}textarea{border:0;min-height:0}dialog::backdrop{background:none}}
-__SCOPE_CSS__</style>
+__SCOPE_CSS__
+__BOOK_CSS__</style>
 </head>
 <body>
 <div class="shell">
@@ -27,7 +28,7 @@ __SCOPE_CSS__</style>
  <section class="hero"><div class="intro"><p class="eyebrow">C++20 · QT 6 · WINDOWS + LINUX</p><h1>От первой сборки<br>к сетевой системе.</h1><p>Вся разработка по шагам: что изучить, что написать и как доказать, что задача решена. Основной продукт и системные лабораторные связаны зависимостями.</p><div class="pillrow"><span class="tag">26 этапов</span><span class="tag">112 заданий</span><span class="tag">Теория в каждой карточке</span></div></div><div class="now" id="currentCard"></div></section>
  <div id="storageNotice" class="notice warn" role="alert" hidden></div>
  <section class="stats" id="stats" aria-label="Прогресс карты"></section>
- <nav class="tabs" aria-label="Представление карты"><button class="tab active" data-view="map">Карта этапов</button><button class="tab" data-view="tasks">Все задания</button><button class="tab" data-view="skills">Технологии</button><button class="tab" data-view="plan">Мой план</button><button class="tab" data-view="guide">Как работать</button></nav>
+ <nav class="tabs" aria-label="Представление карты"><button class="tab active" data-view="map">Карта этапов</button><button class="tab" data-view="tasks">Все задания</button><button class="tab" data-view="skills">Технологии</button><button class="tab" data-view="plan">Мой план</button><button class="tab" data-view="books">Книги и практика</button><button class="tab" data-view="guide">Как работать</button></nav>
  <div class="filters" id="filters"><label class="field">Поиск по темам и задачам<input id="search" type="search" placeholder="Например: CMake, Netlink, RAII…"></label><label class="field">Маршрут<select id="route"><option value="product">Основной продукт</option><option value="extension">Служба и расширения</option><option value="systems">Системное программирование</option><option value="optional">Дополнения из вакансий</option><option value="all">Вся карта</option></select></label><label class="field">Статус<select id="status"><option value="all">Все статусы</option><option value="todo">Не начато</option><option value="doing">В работе</option><option value="review">На проверке</option><option value="done">Принято</option><option value="blocked">Есть препятствие</option></select></label></div>
  <section id="content" aria-live="polite"></section>
  <footer class="footer">План от 12 октября 2026 · Оценки времени — ориентиры для описанной практики. Процент задач не является оценкой профессионального уровня. Отметки и заметки синхронизируются между устройствами вручную через JSON.</footer>
@@ -39,5 +40,6 @@ __SCOPE_CSS__</style>
 <script id="scope-data" type="application/json">__SCOPE__</script>
 <script id="roadmap-data" type="application/json">__DATA__</script>
 <script>__CORE__</script>
+<script>__BOOK_UI__</script>
 <script>__APP__</script>
 <script>__SCOPE_APP__</script></body></html>

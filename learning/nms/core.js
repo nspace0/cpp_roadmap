@@ -1,9 +1,29 @@
 (function (root) {
   'use strict';
   const STATUSES = {todo:'Не начато',doing:'В работе',review:'На проверке',done:'Принято',blocked:'Есть препятствие'};
+  const BOOK_STATUSES = {todo:'Не начато',read:'Прочитал',applied:'Применил',reviewed:'Объяснил и проверил'};
   function createEngine(data, input) {
     const tasks=data.stages.flatMap(s=>s.tasks), byId=Object.fromEntries(tasks.map(t=>[t.id,t]));
-    const fresh=()=>({schemaVersion:1,roadmapId:data.roadmapId,currentTask:data.currentTask,hoursPerWeek:20,planned:['P01.1','P01.2','P01.3'],tasks:JSON.parse(JSON.stringify(data.seed))});
+    const workshops=data.bookStudy?.workshops||[],bookById=Object.fromEntries(workshops.map(w=>[w.id,w]));
+    const emptyBook=()=>({status:'todo',checks:[],evidence:'',notes:'',review:'',spent:0});
+    const fresh=()=>({schemaVersion:1,roadmapId:data.roadmapId,currentTask:data.currentTask,hoursPerWeek:20,planned:['P01.1','P01.2','P01.3'],tasks:JSON.parse(JSON.stringify(data.seed)),books:{}});
+    function validateBook(id,raw){
+      if(!Object.hasOwn(bookById,id))throw Error('Неизвестная книжная практика: '+id);
+      if(!raw||typeof raw!=='object'||Array.isArray(raw)||!Object.hasOwn(BOOK_STATUSES,raw.status))throw Error('Неверный статус книжной практики '+id);
+      const p={...emptyBook(),status:raw.status};
+      for(const key of ['evidence','notes','review']){
+        if(raw[key]!==undefined&&(typeof raw[key]!=='string'||raw[key].length>100000))throw Error('Неверное поле '+key+' у '+id);
+        p[key]=raw[key]||'';
+      }
+      if(raw.checks!==undefined&&(!Array.isArray(raw.checks)||raw.checks.some(n=>!Number.isInteger(n)||n<0||n>=bookById[id].checks.length)))throw Error('Неверные критерии '+id);
+      p.checks=[...new Set(raw.checks||[])];
+      if(raw.spent!==undefined&&(typeof raw.spent!=='number'||!Number.isFinite(raw.spent)||raw.spent<0||raw.spent>10000))throw Error('Неверное время '+id);
+      p.spent=raw.spent||0;
+      if(['applied','reviewed'].includes(p.status)&&(p.checks.length!==bookById[id].checks.length||!p.evidence.trim()))throw Error('Для «Применил» отметь все критерии и запиши код/коммит, команды проверки и результат.');
+      if(p.status==='reviewed'&&!p.review.trim())throw Error('Запиши итог проверки и объяснения: что принято, какие замечания исправлены.');
+      if(typeof raw.updatedAt==='string')p.updatedAt=raw.updatedAt.slice(0,80);
+      return p;
+    }
     let state=fresh();
     function validate(value) {
       if(!value||typeof value!=='object'||Array.isArray(value))throw Error('Ожидается объект прогресса.');
@@ -31,6 +51,10 @@
       for(const [id,p] of Object.entries(clean.tasks))if(p.status==='done'){
         if(p.checks.length!==byId[id].checks.length||!p.review.trim())throw Error('У принятого задания '+id+' не заполнены критерии или итог ревью.');
         if(byId[id].depends.some(d=>clean.tasks[d]?.status!=='done'))throw Error('У принятого задания '+id+' не закрыты зависимости.');
+      }
+      if(value.books!==undefined){
+        if(!value.books||typeof value.books!=='object'||Array.isArray(value.books))throw Error('Неверный список книжных практик.');
+        for(const [id,raw] of Object.entries(value.books))clean.books[id]=validateBook(id,raw);
       }
       return clean;
     }
@@ -61,9 +85,12 @@
       return tasks.filter(t=>(route==='all'||t.route===route)&&(!stage||t.stage===stage)&&(status==='all'||progress(t.id).status===status)&&(!ready||(!unmet(t.id).length&&progress(t.id).status!=='done'))&&(!q||[t.id,t.title,t.theory,...t.topics,...t.steps].join(' ').toLocaleLowerCase('ru').includes(q)));
     }
     function stats(list=tasks){return {total:list.length,done:list.filter(t=>progress(t.id).status==='done').length,review:list.filter(t=>progress(t.id).status==='review').length,doing:list.filter(t=>progress(t.id).status==='doing').length,spent:list.reduce((n,t)=>n+progress(t.id).spent,0),min:list.reduce((n,t)=>n+t.hours[0]+t.hours[2],0),max:list.reduce((n,t)=>n+t.hours[1]+t.hours[3],0)};}
-    return {data,tasks,byId,progress,unmet,canAccept,update,filter,stats,validate,export:()=>({...state,savedAt:new Date().toISOString()}),import:value=>{state=validate(value);return state;},get state(){return state;},statuses:STATUSES};
+    const bookProgress=id=>({...emptyBook(),...state.books[id]});
+    function updateBook(id,patch){const candidate=validateBook(id,{...bookProgress(id),...patch,updatedAt:new Date().toISOString()});state.books[id]=candidate;return candidate;}
+    function bookStats(list=workshops){const ps=list.map(w=>bookProgress(w.id));return {total:ps.length,read:ps.filter(p=>p.status!=='todo').length,applied:ps.filter(p=>['applied','reviewed'].includes(p.status)).length,reviewed:ps.filter(p=>p.status==='reviewed').length,spent:ps.reduce((n,p)=>n+p.spent,0)};}
+    return {data,tasks,byId,progress,unmet,canAccept,update,filter,stats,validate,workshops,bookById,bookProgress,updateBook,bookStats,bookStatuses:BOOK_STATUSES,export:()=>({...state,savedAt:new Date().toISOString()}),import:value=>{state=validate(value);return state;},get state(){return state;},statuses:STATUSES};
   }
-  const api={createEngine,STATUSES};
+  const api={createEngine,STATUSES,BOOK_STATUSES};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   else root.RoadmapCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
