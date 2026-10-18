@@ -1,0 +1,2100 @@
+{
+  "fileName": "C_C++.apkg",
+  "questionCount": 349,
+  "questions": [
+    {
+      "number": 1,
+      "question": "Расскажи о себе",
+      "sourceUrl": "https://easyoffer.ru/question/3846",
+      "studyId": "IQ001"
+    },
+    {
+      "number": 2,
+      "question": "В чем разница vector и list",
+      "sourceUrl": "https://easyoffer.ru/question/3847",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 3,
+      "question": "В чем разница set и unordered_set",
+      "sourceUrl": "https://easyoffer.ru/question/3849",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 4,
+      "question": "Как работает shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/3850",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 5,
+      "question": "Сложность удаление из начала у vector",
+      "sourceUrl": "https://easyoffer.ru/question/3858",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 6,
+      "question": "Что такое noexcept",
+      "sourceUrl": "https://easyoffer.ru/question/3859",
+      "studyId": "IQ006"
+    },
+    {
+      "number": 7,
+      "question": "Зачем нужен виртуальный деструктор",
+      "sourceUrl": "https://easyoffer.ru/question/3861",
+      "studyId": "IQ007"
+    },
+    {
+      "number": 8,
+      "question": "Как работает new",
+      "sourceUrl": "https://easyoffer.ru/question/3852",
+      "studyId": "IQ008"
+    },
+    {
+      "number": 9,
+      "question": "Что знаешь про гарантии безопасности исключений",
+      "sourceUrl": "https://easyoffer.ru/question/3853",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 10,
+      "question": "Что будет если бросить исключение из деструктора",
+      "sourceUrl": "https://easyoffer.ru/question/3855",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 11,
+      "question": "Что будет если в функции помеченной как noexcept бросить исключение",
+      "sourceUrl": "https://easyoffer.ru/question/3856",
+      "studyId": "IQ006"
+    },
+    {
+      "number": 12,
+      "question": "Что такое рекурсивный mutex",
+      "sourceUrl": "https://easyoffer.ru/question/3922",
+      "studyId": "IQ012"
+    },
+    {
+      "number": 13,
+      "question": "Что такое spinlock",
+      "sourceUrl": "https://easyoffer.ru/question/3924",
+      "studyId": "IQ013"
+    },
+    {
+      "number": 14,
+      "question": "Можно ли бросить исключение из деструктора и перехватить его",
+      "sourceUrl": "https://easyoffer.ru/question/3927",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 15,
+      "question": "Как работает unique_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/3928",
+      "studyId": "IQ015"
+    },
+    {
+      "number": 16,
+      "question": "Знаешь правило 5ти и правило 0",
+      "sourceUrl": "https://easyoffer.ru/question/3930",
+      "studyId": "IQ016"
+    },
+    {
+      "number": 17,
+      "question": "У shared_ptr только один счетчик ссылок или их несколько",
+      "sourceUrl": "https://easyoffer.ru/question/3932",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 18,
+      "question": "Что делает функция std::move()",
+      "sourceUrl": "https://easyoffer.ru/question/3933",
+      "studyId": "IQ018"
+    },
+    {
+      "number": 19,
+      "question": "Как с многопоточкой",
+      "sourceUrl": "https://easyoffer.ru/question/3935",
+      "studyId": "IQ019"
+    },
+    {
+      "number": 20,
+      "question": "Что пришло на смену auto_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/3936",
+      "studyId": "IQ020"
+    },
+    {
+      "number": 21,
+      "question": "Что такое move семантика и как её использовать",
+      "sourceUrl": "https://easyoffer.ru/question/3939",
+      "studyId": "IQ018"
+    },
+    {
+      "number": 22,
+      "question": "Базовая гарантия исключений",
+      "sourceUrl": "https://easyoffer.ru/question/3941",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 23,
+      "question": "С чем знаком в С++",
+      "sourceUrl": "https://easyoffer.ru/question/3943",
+      "studyId": "IQ023"
+    },
+    {
+      "number": 24,
+      "question": "Расскажи про ООП",
+      "sourceUrl": "https://easyoffer.ru/question/3945",
+      "studyId": "IQ024"
+    },
+    {
+      "number": 25,
+      "question": "Что такое транзакционность",
+      "sourceUrl": "https://easyoffer.ru/question/3863",
+      "studyId": "IQ025"
+    },
+    {
+      "number": 26,
+      "question": "Выбрасывание исключения из конструктора - это нормально",
+      "sourceUrl": "https://easyoffer.ru/question/3864",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 27,
+      "question": "Когда выбросили исключение из конструктора о чем стоит помнить",
+      "sourceUrl": "https://easyoffer.ru/question/3866",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 28,
+      "question": "Если вызвать исключение в конструкторе, то деструктор не будет вызван",
+      "sourceUrl": "https://easyoffer.ru/question/3867",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 29,
+      "question": "Что за ключевое слово noexcept",
+      "sourceUrl": "https://easyoffer.ru/question/3869",
+      "studyId": "IQ006"
+    },
+    {
+      "number": 30,
+      "question": "Зачем компилятор помечает деструктор как noexcept",
+      "sourceUrl": "https://easyoffer.ru/question/3870",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 31,
+      "question": "Double except привести примеры, когда может полететь повторное исключение",
+      "sourceUrl": "https://easyoffer.ru/question/3872",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 32,
+      "question": "Сложность поиска в бинарных деревьях логарифмическая, всегда ли так",
+      "sourceUrl": "https://easyoffer.ru/question/3879",
+      "studyId": "IQ032"
+    },
+    {
+      "number": 33,
+      "question": "Приведи пример худшего случая поиска в бинарных деревьях",
+      "sourceUrl": "https://easyoffer.ru/question/3881",
+      "studyId": "IQ032"
+    },
+    {
+      "number": 34,
+      "question": "В set сложность вставки, удаления, поиска - логарифмическая",
+      "sourceUrl": "https://easyoffer.ru/question/3884",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 35,
+      "question": "В unordered_set поиск - константа",
+      "sourceUrl": "https://easyoffer.ru/question/3885",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 36,
+      "question": "Когда возникает самый худший случай поиска в unordered_set",
+      "sourceUrl": "https://easyoffer.ru/question/3888",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 37,
+      "question": "Коллизия - когда для разных ключей получается одно и тоже хэш значение",
+      "sourceUrl": "https://easyoffer.ru/question/3890",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 38,
+      "question": "Как удалить элемент из vector за константу, если не важен порядок",
+      "sourceUrl": "https://easyoffer.ru/question/3905",
+      "studyId": "IQ038"
+    },
+    {
+      "number": 39,
+      "question": "Как работает priority_queue",
+      "sourceUrl": "https://easyoffer.ru/question/3894",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 40,
+      "question": "Какой контейнер используется в priority_queue",
+      "sourceUrl": "https://easyoffer.ru/question/3897",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 41,
+      "question": "Знаком ли с таким контейнером как куча",
+      "sourceUrl": "https://easyoffer.ru/question/3898",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 42,
+      "question": "Какая сложность работы с кучей",
+      "sourceUrl": "https://easyoffer.ru/question/3901",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 43,
+      "question": "Сложность удаление из конца у vector",
+      "sourceUrl": "https://easyoffer.ru/question/3902",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 44,
+      "question": "Какие знаешь алгоритмы реализации коллизии",
+      "sourceUrl": "https://easyoffer.ru/question/3892",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 45,
+      "question": "Какой используется алгоритм в функции sort",
+      "sourceUrl": "https://easyoffer.ru/question/3907",
+      "studyId": "IQ045"
+    },
+    {
+      "number": 46,
+      "question": "Как работает быстрая сортировка",
+      "sourceUrl": "https://easyoffer.ru/question/3909",
+      "studyId": "IQ045"
+    },
+    {
+      "number": 47,
+      "question": "На каких контейнерах реализованы stack и queue",
+      "sourceUrl": "https://easyoffer.ru/question/3910",
+      "studyId": "IQ047"
+    },
+    {
+      "number": 48,
+      "question": "Что такое deque",
+      "sourceUrl": "https://easyoffer.ru/question/3912",
+      "studyId": "IQ048"
+    },
+    {
+      "number": 49,
+      "question": "Как проверять равенство двух float",
+      "sourceUrl": "https://easyoffer.ru/question/3913",
+      "studyId": "IQ049"
+    },
+    {
+      "number": 50,
+      "question": "Альтернативное решение, для хранения float цены в качестве ключа",
+      "sourceUrl": "https://easyoffer.ru/question/3915",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 51,
+      "question": "Как можно хранить денежный эквивалент используя int",
+      "sourceUrl": "https://easyoffer.ru/question/3917",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 52,
+      "question": "Механизм атомарного залочивания двух mutex",
+      "sourceUrl": "https://easyoffer.ru/question/3918",
+      "studyId": "IQ052"
+    },
+    {
+      "number": 53,
+      "question": "Сколько нужно минимальное количество mutex для deadlock",
+      "sourceUrl": "https://easyoffer.ru/question/3920",
+      "studyId": "IQ053"
+    },
+    {
+      "number": 54,
+      "question": "Что будет если несколько раз вызвать lock",
+      "sourceUrl": "https://easyoffer.ru/question/3921",
+      "studyId": "IQ012"
+    },
+    {
+      "number": 55,
+      "question": "Какие знаешь умные указатели в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4130",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 56,
+      "question": "Какой подсчет ссылок имеется в shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4131",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 57,
+      "question": "Зачем используются делиторы в умных указателях",
+      "sourceUrl": "https://easyoffer.ru/question/4132",
+      "studyId": "IQ057"
+    },
+    {
+      "number": 58,
+      "question": "Что можешь рассказать о little-endian и big-endian",
+      "sourceUrl": "https://easyoffer.ru/question/4186",
+      "studyId": "IQ058"
+    },
+    {
+      "number": 59,
+      "question": "Как написать умный указатель для одного и множества объектов",
+      "sourceUrl": "https://easyoffer.ru/question/4133",
+      "studyId": "IQ059"
+    },
+    {
+      "number": 60,
+      "question": "Как сделать так, что бы в shared_ptr были утечки",
+      "sourceUrl": "https://easyoffer.ru/question/4134",
+      "studyId": "IQ060"
+    },
+    {
+      "number": 61,
+      "question": "Как сделать так, что бы в unique_ptr были утечки",
+      "sourceUrl": "https://easyoffer.ru/question/4135",
+      "studyId": "IQ061"
+    },
+    {
+      "number": 62,
+      "question": "Когда в умных указателях не вызовиться delete для объекта",
+      "sourceUrl": "https://easyoffer.ru/question/4136",
+      "studyId": "IQ061"
+    },
+    {
+      "number": 63,
+      "question": "В конструкторе при вызове new вылетело исключение - это утечка",
+      "sourceUrl": "https://easyoffer.ru/question/4137",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 64,
+      "question": "В чем разница map и unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4138",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 65,
+      "question": "За счет чего появляетcя амортизированная константная сложность в map",
+      "sourceUrl": "https://easyoffer.ru/question/4139",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 66,
+      "question": "Что нужно сделать с map или unordered_map для использования в качестве ключа свой класс",
+      "sourceUrl": "https://easyoffer.ru/question/4140",
+      "studyId": "IQ066"
+    },
+    {
+      "number": 67,
+      "question": "Асимптотическая сложность вставки и удаления в list и vector",
+      "sourceUrl": "https://easyoffer.ru/question/4141",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 68,
+      "question": "Что происходит с элементами vector во время realloc",
+      "sourceUrl": "https://easyoffer.ru/question/4142",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 69,
+      "question": "Что сделать что бы во время realloc элементы перемещались",
+      "sourceUrl": "https://easyoffer.ru/question/4143",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 70,
+      "question": "Асимптотическая сложность в list",
+      "sourceUrl": "https://easyoffer.ru/question/4144",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 71,
+      "question": "Какая будет сложность удаления элемента с начала в vector",
+      "sourceUrl": "https://easyoffer.ru/question/4145",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 72,
+      "question": "Какие контейнеры позволяют вставку в начало контейнера",
+      "sourceUrl": "https://easyoffer.ru/question/4146",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 73,
+      "question": "В чем разница map и unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4147",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 74,
+      "question": "Что нужно сделать для использования класса в качестве ключа в unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4148",
+      "studyId": "IQ066"
+    },
+    {
+      "number": 75,
+      "question": "Как работает map и unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4149",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 76,
+      "question": "Какая сложность работы с map и unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4150",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 77,
+      "question": "Как называется одинаковый результат после применения хэш функции",
+      "sourceUrl": "https://easyoffer.ru/question/4151",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 78,
+      "question": "Способы решения хеш-коллизий",
+      "sourceUrl": "https://easyoffer.ru/question/4152",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 79,
+      "question": "Какие знаешь виды итераторов",
+      "sourceUrl": "https://easyoffer.ru/question/4153",
+      "studyId": "IQ079"
+    },
+    {
+      "number": 80,
+      "question": "Можешь рассказать концепцию input output",
+      "sourceUrl": "https://easyoffer.ru/question/4154",
+      "studyId": "IQ079"
+    },
+    {
+      "number": 81,
+      "question": "Что такое back_inserter, зачем он нужен",
+      "sourceUrl": "https://easyoffer.ru/question/4155",
+      "studyId": "IQ081"
+    },
+    {
+      "number": 82,
+      "question": "Как можно отсортировать list",
+      "sourceUrl": "https://easyoffer.ru/question/4156",
+      "studyId": "IQ082"
+    },
+    {
+      "number": 83,
+      "question": "Как называется возможность вызова функции без явного указания namespace",
+      "sourceUrl": "https://easyoffer.ru/question/4157",
+      "studyId": "IQ083"
+    },
+    {
+      "number": 84,
+      "question": "Что такое виртуальное наследования",
+      "sourceUrl": "https://easyoffer.ru/question/4158",
+      "studyId": "IQ084"
+    },
+    {
+      "number": 85,
+      "question": "В каком порядке конструируется объект и в каком разрушается",
+      "sourceUrl": "https://easyoffer.ru/question/4159",
+      "studyId": "IQ085"
+    },
+    {
+      "number": 86,
+      "question": "Когда нужно объявлять деструктор виртуальным",
+      "sourceUrl": "https://easyoffer.ru/question/4160",
+      "studyId": "IQ007"
+    },
+    {
+      "number": 87,
+      "question": "Сколько будет таблиц виртуальных функций у двух классов участвующих в наследовании",
+      "sourceUrl": "https://easyoffer.ru/question/4161",
+      "studyId": "IQ087"
+    },
+    {
+      "number": 88,
+      "question": "Вызов function call для конструктора и деструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4162",
+      "studyId": "IQ088"
+    },
+    {
+      "number": 89,
+      "question": "Как вызвать pure virtual call",
+      "sourceUrl": "https://easyoffer.ru/question/4163",
+      "studyId": "IQ088"
+    },
+    {
+      "number": 90,
+      "question": "Какие знаешь Smart pointers",
+      "sourceUrl": "https://easyoffer.ru/question/4164",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 91,
+      "question": "Почему удалил auto_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4165",
+      "studyId": "IQ020"
+    },
+    {
+      "number": 92,
+      "question": "Как работает счетчик ссылок в shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4166",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 93,
+      "question": "shared_ptr потокобезопасный",
+      "sourceUrl": "https://easyoffer.ru/question/4168",
+      "studyId": "IQ093"
+    },
+    {
+      "number": 94,
+      "question": "В чем разница создания shared_ptr через конструктор или через функцию make_shared",
+      "sourceUrl": "https://easyoffer.ru/question/4169",
+      "studyId": "IQ094"
+    },
+    {
+      "number": 95,
+      "question": "Расскажи про вызовы thow exception в конструкторах и деструкторах",
+      "sourceUrl": "https://easyoffer.ru/question/4170",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 96,
+      "question": "Расскажи о истории умных указателей",
+      "sourceUrl": "https://easyoffer.ru/question/4172",
+      "studyId": "IQ020"
+    },
+    {
+      "number": 97,
+      "question": "Можно ли сменить владельца у unique_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4173",
+      "studyId": "IQ015"
+    },
+    {
+      "number": 98,
+      "question": "Какие есть еще умные указатели кроме auto_ptr и unique_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4175",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 99,
+      "question": "Какой обычно используется тип для count-еров в C++",
+      "sourceUrl": "https://easyoffer.ru/question/4176",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 100,
+      "question": "Для чего при перегрузке оператора присваивания возвращать ссылку",
+      "sourceUrl": "https://easyoffer.ru/question/4177",
+      "studyId": "IQ100"
+    },
+    {
+      "number": 101,
+      "question": "Какие есть два типа оператора delete",
+      "sourceUrl": "https://easyoffer.ru/question/4179",
+      "studyId": "IQ101"
+    },
+    {
+      "number": 102,
+      "question": "Что будет если сделать delete для nullptr",
+      "sourceUrl": "https://easyoffer.ru/question/4181",
+      "studyId": "IQ101"
+    },
+    {
+      "number": 103,
+      "question": "Что будет если вызвать free для nullptr",
+      "sourceUrl": "https://easyoffer.ru/question/4182",
+      "studyId": "IQ101"
+    },
+    {
+      "number": 104,
+      "question": "Что знаешь о константных и не константных методах",
+      "sourceUrl": "https://easyoffer.ru/question/4184",
+      "studyId": "IQ104"
+    },
+    {
+      "number": 105,
+      "question": "Что такое stack and reaping",
+      "sourceUrl": "https://easyoffer.ru/question/4185",
+      "studyId": "IQ105"
+    },
+    {
+      "number": 106,
+      "question": "Какая архитектура процессора чаще используется little-endian или big-endian",
+      "sourceUrl": "https://easyoffer.ru/question/4188",
+      "studyId": "IQ058"
+    },
+    {
+      "number": 107,
+      "question": "Какая есть разница ссылки и указателя",
+      "sourceUrl": "https://easyoffer.ru/question/4189",
+      "studyId": "IQ107"
+    },
+    {
+      "number": 108,
+      "question": "Ссылка всегда будет являться псевдонимом или может вести себя как указатель",
+      "sourceUrl": "https://easyoffer.ru/question/4191",
+      "studyId": "IQ107"
+    },
+    {
+      "number": 109,
+      "question": "Как устроена хеш таблица в unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4230",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 110,
+      "question": "Unordered_map инвалидирует итераторы",
+      "sourceUrl": "https://easyoffer.ru/question/4231",
+      "studyId": "IQ110"
+    },
+    {
+      "number": 111,
+      "question": "Как устроен контейнер map",
+      "sourceUrl": "https://easyoffer.ru/question/4232",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 112,
+      "question": "Какие знаешь алгоритмы балансировки деревьев",
+      "sourceUrl": "https://easyoffer.ru/question/4233",
+      "studyId": "IQ032"
+    },
+    {
+      "number": 113,
+      "question": "Какая асимптотика у list",
+      "sourceUrl": "https://easyoffer.ru/question/4234",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 114,
+      "question": "Какая асимптотика у vector",
+      "sourceUrl": "https://easyoffer.ru/question/4235",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 115,
+      "question": "Почему с оператором перемещения не помеченным как noexcept move семантика не будет работать",
+      "sourceUrl": "https://easyoffer.ru/question/4236",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 116,
+      "question": "Строгая гарантия исключений",
+      "sourceUrl": "https://easyoffer.ru/question/4237",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 117,
+      "question": "Гарантия отсутствия исключений",
+      "sourceUrl": "https://easyoffer.ru/question/4238",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 118,
+      "question": "Что будет если из функции помеченной как noexcept полетит исключение",
+      "sourceUrl": "https://easyoffer.ru/question/4239",
+      "studyId": "IQ006"
+    },
+    {
+      "number": 119,
+      "question": "Сложность операции удаления элемента в vector",
+      "sourceUrl": "https://easyoffer.ru/question/4240",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 120,
+      "question": "Как сделать операцию удаления элемента из начала, если порядок элементов не важен, в vector",
+      "sourceUrl": "https://easyoffer.ru/question/4241",
+      "studyId": "IQ038"
+    },
+    {
+      "number": 121,
+      "question": "Какой алгоритм сортировки у функции sort",
+      "sourceUrl": "https://easyoffer.ru/question/4242",
+      "studyId": "IQ045"
+    },
+    {
+      "number": 122,
+      "question": "Асимптотика unordered_set и set",
+      "sourceUrl": "https://easyoffer.ru/question/4243",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 123,
+      "question": "Какой тип стоит использовать в качестве ключа для денежного эквивалента",
+      "sourceUrl": "https://easyoffer.ru/question/4244",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 124,
+      "question": "Priority_queue что это за структура данных",
+      "sourceUrl": "https://easyoffer.ru/question/4246",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 125,
+      "question": "Хорошо ли хранить числа с плавающей запятой в качестве ключа контейнера",
+      "sourceUrl": "https://easyoffer.ru/question/4247",
+      "studyId": "IQ125"
+    },
+    {
+      "number": 126,
+      "question": "Что происходит когда случается коллизия при получении ключа для контейнера",
+      "sourceUrl": "https://easyoffer.ru/question/4249",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 127,
+      "question": "Как бы сравнил два float на равенство",
+      "sourceUrl": "https://easyoffer.ru/question/4251",
+      "studyId": "IQ049"
+    },
+    {
+      "number": 128,
+      "question": "Хорошая ли идея хранить float в качестве ключа контейнера",
+      "sourceUrl": "https://easyoffer.ru/question/4253",
+      "studyId": "IQ125"
+    },
+    {
+      "number": 129,
+      "question": "Что можно придумать на замену float для хранения денежного эквивалента",
+      "sourceUrl": "https://easyoffer.ru/question/4255",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 130,
+      "question": "Что нужно сделать, что бы хранить свою структуру в unordered_map",
+      "sourceUrl": "https://easyoffer.ru/question/4257",
+      "studyId": "IQ066"
+    },
+    {
+      "number": 131,
+      "question": "Как работает хеш таблица",
+      "sourceUrl": "https://easyoffer.ru/question/4259",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 132,
+      "question": "Что нужно сделать, что бы хранить свою структуру в map",
+      "sourceUrl": "https://easyoffer.ru/question/4261",
+      "studyId": "IQ066"
+    },
+    {
+      "number": 133,
+      "question": "Как можно хранить денежный эквивалент в integer",
+      "sourceUrl": "https://easyoffer.ru/question/4264",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 134,
+      "question": "Математический вариант хранить денежный эквивалент в integer",
+      "sourceUrl": "https://easyoffer.ru/question/4265",
+      "studyId": "IQ050"
+    },
+    {
+      "number": 135,
+      "question": "На какой структуре данных построена priority_queue",
+      "sourceUrl": "https://easyoffer.ru/question/4267",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 136,
+      "question": "На каком контейнере построены stack и queue",
+      "sourceUrl": "https://easyoffer.ru/question/4268",
+      "studyId": "IQ047"
+    },
+    {
+      "number": 137,
+      "question": "На какой структуре данных построена priority_queue",
+      "sourceUrl": "https://easyoffer.ru/question/4270",
+      "studyId": "IQ039"
+    },
+    {
+      "number": 138,
+      "question": "На каком контейнере построены stack и queue",
+      "sourceUrl": "https://easyoffer.ru/question/4271",
+      "studyId": "IQ047"
+    },
+    {
+      "number": 139,
+      "question": "Что такое deque",
+      "sourceUrl": "https://easyoffer.ru/question/4273",
+      "studyId": "IQ048"
+    },
+    {
+      "number": 140,
+      "question": "Как с многопоточкой",
+      "sourceUrl": "https://easyoffer.ru/question/4275",
+      "studyId": "IQ019"
+    },
+    {
+      "number": 141,
+      "question": "Что под капотом у std::cout",
+      "sourceUrl": "https://easyoffer.ru/question/4277",
+      "studyId": "IQ141"
+    },
+    {
+      "number": 142,
+      "question": "Что такое поток вывода cout",
+      "sourceUrl": "https://easyoffer.ru/question/4278",
+      "studyId": "IQ141"
+    },
+    {
+      "number": 143,
+      "question": "Cout сразу пишет в файловый дескриптор или нет",
+      "sourceUrl": "https://easyoffer.ru/question/4281",
+      "studyId": "IQ141"
+    },
+    {
+      "number": 144,
+      "question": "Зачем вызывать join и detach у потока Что будет если не вызвать",
+      "sourceUrl": "https://easyoffer.ru/question/4283",
+      "studyId": "IQ144"
+    },
+    {
+      "number": 145,
+      "question": "Можно ли копировать потоки",
+      "sourceUrl": "https://easyoffer.ru/question/4284",
+      "studyId": "IQ144"
+    },
+    {
+      "number": 146,
+      "question": "Зачем писать условие проверки потока joinable()",
+      "sourceUrl": "https://easyoffer.ru/question/4285",
+      "studyId": "IQ144"
+    },
+    {
+      "number": 147,
+      "question": "Когда невозможно приатачить поток",
+      "sourceUrl": "https://easyoffer.ru/question/4287",
+      "studyId": "IQ144"
+    },
+    {
+      "number": 148,
+      "question": "Как синхронизировать потоки",
+      "sourceUrl": "https://easyoffer.ru/question/4289",
+      "studyId": "IQ019"
+    },
+    {
+      "number": 149,
+      "question": "Какие сегменты процесса шарятся между потоками, а какие нет",
+      "sourceUrl": "https://easyoffer.ru/question/4290",
+      "studyId": "IQ149"
+    },
+    {
+      "number": 150,
+      "question": "Какие есть типы mutex",
+      "sourceUrl": "https://easyoffer.ru/question/4291",
+      "studyId": "IQ012"
+    },
+    {
+      "number": 151,
+      "question": "Что будет если вызвать дважды lock()",
+      "sourceUrl": "https://easyoffer.ru/question/4293",
+      "studyId": "IQ012"
+    },
+    {
+      "number": 152,
+      "question": "Знаком с spinlock и deadlock",
+      "sourceUrl": "https://easyoffer.ru/question/4295",
+      "studyId": "IQ053"
+    },
+    {
+      "number": 153,
+      "question": "Как работает new",
+      "sourceUrl": "https://easyoffer.ru/question/4296",
+      "studyId": "IQ008"
+    },
+    {
+      "number": 154,
+      "question": "Какие знаешь умные указателя в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4297",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 155,
+      "question": "Если std::move() не перемещает данные, то что их перемещает",
+      "sourceUrl": "https://easyoffer.ru/question/4299",
+      "studyId": "IQ018"
+    },
+    {
+      "number": 156,
+      "question": "Что такое weak_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4300",
+      "studyId": "IQ156"
+    },
+    {
+      "number": 157,
+      "question": "Что возвращает new",
+      "sourceUrl": "https://easyoffer.ru/question/4302",
+      "studyId": "IQ008"
+    },
+    {
+      "number": 158,
+      "question": "Что будет если для беззнаковой переменной равной 0 сделать декремент",
+      "sourceUrl": "https://easyoffer.ru/question/4303",
+      "studyId": "IQ158"
+    },
+    {
+      "number": 159,
+      "question": "Чем полезны списки инициализации в конструкторах",
+      "sourceUrl": "https://easyoffer.ru/question/4304",
+      "studyId": "IQ159"
+    },
+    {
+      "number": 160,
+      "question": "С какими проектами работал и работаешь",
+      "sourceUrl": "https://easyoffer.ru/question/4305",
+      "studyId": "IQ160"
+    },
+    {
+      "number": 161,
+      "question": "С чем работал у интерфейса UI",
+      "sourceUrl": "https://easyoffer.ru/question/4306",
+      "studyId": "IQ161"
+    },
+    {
+      "number": 162,
+      "question": "Что знаешь про ограничение размера стека вызовов",
+      "sourceUrl": "https://easyoffer.ru/question/4307",
+      "studyId": "IQ162"
+    },
+    {
+      "number": 163,
+      "question": "Почему пришел к C++",
+      "sourceUrl": "https://easyoffer.ru/question/4308",
+      "studyId": "IQ163"
+    },
+    {
+      "number": 164,
+      "question": "С какими ОС работал",
+      "sourceUrl": "https://easyoffer.ru/question/4309",
+      "studyId": "IQ164"
+    },
+    {
+      "number": 165,
+      "question": "Почему не сделать стек вызова очень большим",
+      "sourceUrl": "https://easyoffer.ru/question/4310",
+      "studyId": "IQ162"
+    },
+    {
+      "number": 166,
+      "question": "Почему со стеком работать быстрее чем с кучей",
+      "sourceUrl": "https://easyoffer.ru/question/4311",
+      "studyId": "IQ162"
+    },
+    {
+      "number": 167,
+      "question": "Что знаешь про exception safety",
+      "sourceUrl": "https://easyoffer.ru/question/4312",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 168,
+      "question": "Какие знаешь уровни exception гарантий",
+      "sourceUrl": "https://easyoffer.ru/question/4313",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 169,
+      "question": "Какие есть уровни exception гарантий",
+      "sourceUrl": "https://easyoffer.ru/question/4314",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 170,
+      "question": "Что можешь сказать про исключение в конструкторе",
+      "sourceUrl": "https://easyoffer.ru/question/4315",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 171,
+      "question": "Почему по идее в конструкторе нужны исключения",
+      "sourceUrl": "https://easyoffer.ru/question/4316",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 172,
+      "question": "С точки зрения синтаксиса С++ почему нужна возможность бросать исключения из конструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4318",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 173,
+      "question": "Какие бы выделил моменты, которые поменяли С++ в 11ом стандарте в лучшую сторону",
+      "sourceUrl": "https://easyoffer.ru/question/4319",
+      "studyId": "IQ173"
+    },
+    {
+      "number": 174,
+      "question": "Unordered_set, unordered_map и set, map чем отличаются",
+      "sourceUrl": "https://easyoffer.ru/question/4321",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 175,
+      "question": "Что лежит в основе работы unordered_set, unordered_map и set, map",
+      "sourceUrl": "https://easyoffer.ru/question/4322",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 176,
+      "question": "Время доступа к элементу хеш таблицы",
+      "sourceUrl": "https://easyoffer.ru/question/4324",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 177,
+      "question": "За счет чего достигается средняя константная сложность в хеш таблицах",
+      "sourceUrl": "https://easyoffer.ru/question/4326",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 178,
+      "question": "Коллизия в хеш таблицах",
+      "sourceUrl": "https://easyoffer.ru/question/4327",
+      "studyId": "IQ037"
+    },
+    {
+      "number": 179,
+      "question": "Что будет с хеш таблицей, если в неё постоянно добавлять элементы",
+      "sourceUrl": "https://easyoffer.ru/question/4329",
+      "studyId": "IQ110"
+    },
+    {
+      "number": 180,
+      "question": "В какой момент принимается решение, что хеш таблице надо перестроиться",
+      "sourceUrl": "https://easyoffer.ru/question/4330",
+      "studyId": "IQ110"
+    },
+    {
+      "number": 181,
+      "question": "Что знаешь про фрагментацию кучи",
+      "sourceUrl": "https://easyoffer.ru/question/4332",
+      "studyId": "IQ181"
+    },
+    {
+      "number": 182,
+      "question": "Что из себя будет представлять фрагментированная куча",
+      "sourceUrl": "https://easyoffer.ru/question/4333",
+      "studyId": "IQ181"
+    },
+    {
+      "number": 183,
+      "question": "Причины по которым в С++ нельзя реализовать сборку мусора",
+      "sourceUrl": "https://easyoffer.ru/question/4335",
+      "studyId": "IQ183"
+    },
+    {
+      "number": 184,
+      "question": "Что еще происходит помимо вызова деструкторов во время сборки мусора",
+      "sourceUrl": "https://easyoffer.ru/question/4336",
+      "studyId": "IQ183"
+    },
+    {
+      "number": 185,
+      "question": "Расскажи о dependency inversion в SOLID",
+      "sourceUrl": "https://easyoffer.ru/question/4338",
+      "studyId": "IQ185"
+    },
+    {
+      "number": 186,
+      "question": "Какие задачи решаешь на текущем месте работы",
+      "sourceUrl": "https://easyoffer.ru/question/4340",
+      "studyId": "IQ160"
+    },
+    {
+      "number": 187,
+      "question": "Какие задачи решаешь на текущем месте работы",
+      "sourceUrl": "https://easyoffer.ru/question/4341",
+      "studyId": "IQ160"
+    },
+    {
+      "number": 188,
+      "question": "Используете коллекции stl или свои",
+      "sourceUrl": "https://easyoffer.ru/question/4347",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 189,
+      "question": "Что знаешь о ключевом слове override",
+      "sourceUrl": "https://easyoffer.ru/question/4348",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 190,
+      "question": "Что происходит с методом если мы используем override",
+      "sourceUrl": "https://easyoffer.ru/question/4349",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 191,
+      "question": "Именно override переопределяет метод",
+      "sourceUrl": "https://easyoffer.ru/question/4350",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 192,
+      "question": "В каком стандарте появился override",
+      "sourceUrl": "https://easyoffer.ru/question/4351",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 193,
+      "question": "До 11го стандарта переопределение работало",
+      "sourceUrl": "https://easyoffer.ru/question/4352",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 194,
+      "question": "Принцип open closed",
+      "sourceUrl": "https://easyoffer.ru/question/4353",
+      "studyId": "IQ194"
+    },
+    {
+      "number": 195,
+      "question": "Принцип подстановки Барбары Лисков",
+      "sourceUrl": "https://easyoffer.ru/question/4354",
+      "studyId": "IQ195"
+    },
+    {
+      "number": 196,
+      "question": "Почему лучше использовать принципы SOLID",
+      "sourceUrl": "https://easyoffer.ru/question/4355",
+      "studyId": "IQ196"
+    },
+    {
+      "number": 197,
+      "question": "Как убедиться что нет багов в коде",
+      "sourceUrl": "https://easyoffer.ru/question/4356",
+      "studyId": "IQ197"
+    },
+    {
+      "number": 198,
+      "question": "На какой процесс может повлиять наличие мелких файлов",
+      "sourceUrl": "https://easyoffer.ru/question/4357",
+      "studyId": "IQ198"
+    },
+    {
+      "number": 199,
+      "question": "Как принципы SOLID помогают при параллельной разработке",
+      "sourceUrl": "https://easyoffer.ru/question/4358",
+      "studyId": "IQ196"
+    },
+    {
+      "number": 200,
+      "question": "Как работает range based",
+      "sourceUrl": "https://easyoffer.ru/question/4359",
+      "studyId": "IQ200"
+    },
+    {
+      "number": 201,
+      "question": "Какой способ обойти range based",
+      "sourceUrl": "https://easyoffer.ru/question/4360",
+      "studyId": "IQ200"
+    },
+    {
+      "number": 202,
+      "question": "Какие предъявляют претензии к Singleton",
+      "sourceUrl": "https://easyoffer.ru/question/4361",
+      "studyId": "IQ202"
+    },
+    {
+      "number": 203,
+      "question": "Почему Singleton всегда нарушает правило единственной ответственности",
+      "sourceUrl": "https://easyoffer.ru/question/4362",
+      "studyId": "IQ202"
+    },
+    {
+      "number": 204,
+      "question": "Что не так с Singleton с точки зрения тестирования",
+      "sourceUrl": "https://easyoffer.ru/question/4363",
+      "studyId": "IQ202"
+    },
+    {
+      "number": 205,
+      "question": "Каким образом мы получаем состояния private полей в классе",
+      "sourceUrl": "https://easyoffer.ru/question/4364",
+      "studyId": "IQ205"
+    },
+    {
+      "number": 206,
+      "question": "Для чего нужна инкапсуляция, кроме сокрытия",
+      "sourceUrl": "https://easyoffer.ru/question/4365",
+      "studyId": "IQ205"
+    },
+    {
+      "number": 207,
+      "question": "Расскажи про полиморфизм",
+      "sourceUrl": "https://easyoffer.ru/question/4366",
+      "studyId": "IQ207"
+    },
+    {
+      "number": 208,
+      "question": "Какие есть виды полиморфизма",
+      "sourceUrl": "https://easyoffer.ru/question/4367",
+      "studyId": "IQ207"
+    },
+    {
+      "number": 209,
+      "question": "Почему один статический, а другой динамический полиморфизм",
+      "sourceUrl": "https://easyoffer.ru/question/4368",
+      "studyId": "IQ207"
+    },
+    {
+      "number": 210,
+      "question": "Расскажи про наследование",
+      "sourceUrl": "https://easyoffer.ru/question/4369",
+      "studyId": "IQ210"
+    },
+    {
+      "number": 211,
+      "question": "Что происходит при приватном наследовании",
+      "sourceUrl": "https://easyoffer.ru/question/4370",
+      "studyId": "IQ210"
+    },
+    {
+      "number": 212,
+      "question": "Каким способом можно получать доступ к закрытым полям другого класса",
+      "sourceUrl": "https://easyoffer.ru/question/4371",
+      "studyId": "IQ212"
+    },
+    {
+      "number": 213,
+      "question": "Что возвращают функции std при передачи туда пустых аргументов",
+      "sourceUrl": "https://easyoffer.ru/question/4372",
+      "studyId": "IQ213"
+    },
+    {
+      "number": 214,
+      "question": "Зачем нам абстрактный после последний элемент в массиве",
+      "sourceUrl": "https://easyoffer.ru/question/4373",
+      "studyId": "IQ079"
+    },
+    {
+      "number": 215,
+      "question": "Преимущество использования библиотеки std",
+      "sourceUrl": "https://easyoffer.ru/question/4374",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 216,
+      "question": "Что есть у стандартных функций, чего не у самописных",
+      "sourceUrl": "https://easyoffer.ru/question/4375",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 217,
+      "question": "Что не так для тебя с стандартной библиотекой",
+      "sourceUrl": "https://easyoffer.ru/question/4376",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 218,
+      "question": "Почему нельзя бросать исключения из деструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4377",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 219,
+      "question": "Абстрактный пример для вызова std::terminate",
+      "sourceUrl": "https://easyoffer.ru/question/4378",
+      "studyId": "IQ219"
+    },
+    {
+      "number": 220,
+      "question": "Какая ситуация, кроме броса исключения, вызывает деструктор",
+      "sourceUrl": "https://easyoffer.ru/question/4379",
+      "studyId": "IQ220"
+    },
+    {
+      "number": 221,
+      "question": "Зачем нужна функция make_shared",
+      "sourceUrl": "https://easyoffer.ru/question/4380",
+      "studyId": "IQ094"
+    },
+    {
+      "number": 222,
+      "question": "В чем есть преимущество функции make_shared",
+      "sourceUrl": "https://easyoffer.ru/question/4381",
+      "studyId": "IQ094"
+    },
+    {
+      "number": 223,
+      "question": "Из чего состоит shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4382",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 224,
+      "question": "Почему аргументы в макросах нужно брать в скобки",
+      "sourceUrl": "https://easyoffer.ru/question/4383",
+      "studyId": "IQ224"
+    },
+    {
+      "number": 225,
+      "question": "Как устроено наследование с точки зрения расположения в памяти",
+      "sourceUrl": "https://easyoffer.ru/question/4384",
+      "studyId": "IQ087"
+    },
+    {
+      "number": 226,
+      "question": "Какой порядок вызова деструкторов",
+      "sourceUrl": "https://easyoffer.ru/question/4385",
+      "studyId": "IQ085"
+    },
+    {
+      "number": 227,
+      "question": "Для чего нужно ключевое слово explicit",
+      "sourceUrl": "https://easyoffer.ru/question/4386",
+      "studyId": "IQ227"
+    },
+    {
+      "number": 228,
+      "question": "Какие этапы сборки проекта знаешь",
+      "sourceUrl": "https://easyoffer.ru/question/4387",
+      "studyId": "IQ228"
+    },
+    {
+      "number": 229,
+      "question": "Что такое компиляция, что на этом этапе происходит",
+      "sourceUrl": "https://easyoffer.ru/question/4388",
+      "studyId": "IQ228"
+    },
+    {
+      "number": 230,
+      "question": "Насколько уверенно себя чувствуешь с макросами",
+      "sourceUrl": "https://easyoffer.ru/question/4389",
+      "studyId": "IQ224"
+    },
+    {
+      "number": 231,
+      "question": "Каким образом работает макрос на этапе препроцессинга",
+      "sourceUrl": "https://easyoffer.ru/question/4390",
+      "studyId": "IQ224"
+    },
+    {
+      "number": 232,
+      "question": "Что пойдет не так, если не взять аргументы макроса в скобки",
+      "sourceUrl": "https://easyoffer.ru/question/4391",
+      "studyId": "IQ224"
+    },
+    {
+      "number": 233,
+      "question": "Знаешь ли как защитить хидер от повторного включения",
+      "sourceUrl": "https://easyoffer.ru/question/4392",
+      "studyId": "IQ233"
+    },
+    {
+      "number": 234,
+      "question": "Что будет если вызвать оператор delete на nullptr",
+      "sourceUrl": "https://easyoffer.ru/question/4393",
+      "studyId": "IQ101"
+    },
+    {
+      "number": 235,
+      "question": "Что произойдет если скопировать string",
+      "sourceUrl": "https://easyoffer.ru/question/4394",
+      "studyId": "IQ235"
+    },
+    {
+      "number": 236,
+      "question": "Что будет если переместить string",
+      "sourceUrl": "https://easyoffer.ru/question/4395",
+      "studyId": "IQ235"
+    },
+    {
+      "number": 237,
+      "question": "Знаешь ли про placement new",
+      "sourceUrl": "https://easyoffer.ru/question/4396",
+      "studyId": "IQ237"
+    },
+    {
+      "number": 238,
+      "question": "Как со стандартной библиотекой контейнеров",
+      "sourceUrl": "https://easyoffer.ru/question/4397",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 239,
+      "question": "Как еще называются контейнеры set, map",
+      "sourceUrl": "https://easyoffer.ru/question/4398",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 240,
+      "question": "Придумай практическое применение для оператора placement new",
+      "sourceUrl": "https://easyoffer.ru/question/4399",
+      "studyId": "IQ237"
+    },
+    {
+      "number": 241,
+      "question": "Расскажи как запретить от него наследоваться",
+      "sourceUrl": "https://easyoffer.ru/question/4400",
+      "studyId": "IQ241"
+    },
+    {
+      "number": 242,
+      "question": "Что может пойти не так, если бросить exception из конструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4401",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 243,
+      "question": "Что нужно применять, что бы выбрасывать исключения из конструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4402",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 244,
+      "question": "Что знаешь о умных указателях",
+      "sourceUrl": "https://easyoffer.ru/question/4403",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 245,
+      "question": "Какой указатель идет в паре с shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4404",
+      "studyId": "IQ156"
+    },
+    {
+      "number": 246,
+      "question": "В чем отличие weak_ptr от shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4405",
+      "studyId": "IQ156"
+    },
+    {
+      "number": 247,
+      "question": "Может ли быть проблема со вставкой ста элементов через push_back",
+      "sourceUrl": "https://easyoffer.ru/question/4406",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 248,
+      "question": "Насколько перевыделяется память у vector",
+      "sourceUrl": "https://easyoffer.ru/question/4407",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 249,
+      "question": "Что необходимо иметь классу, что бы использовать его в качестве ключа к ассоциативным контейнерам",
+      "sourceUrl": "https://easyoffer.ru/question/4408",
+      "studyId": "IQ066"
+    },
+    {
+      "number": 250,
+      "question": "Что нравится, а что не нравится в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4409",
+      "studyId": "IQ250"
+    },
+    {
+      "number": 251,
+      "question": "Что за технология gRPC",
+      "sourceUrl": "https://easyoffer.ru/question/4410",
+      "studyId": "IQ251"
+    },
+    {
+      "number": 252,
+      "question": "Почему мы не пишем код в хидер файле",
+      "sourceUrl": "https://easyoffer.ru/question/4411",
+      "studyId": "IQ252"
+    },
+    {
+      "number": 253,
+      "question": "Какой имеется побочный эффект при работе с кодом в хидере",
+      "sourceUrl": "https://easyoffer.ru/question/4412",
+      "studyId": "IQ252"
+    },
+    {
+      "number": 254,
+      "question": "В каких ситуациях мы вынуждены писать код в хидере",
+      "sourceUrl": "https://easyoffer.ru/question/4413",
+      "studyId": "IQ252"
+    },
+    {
+      "number": 255,
+      "question": "Где мы можем писать шаблоны",
+      "sourceUrl": "https://easyoffer.ru/question/4414",
+      "studyId": "IQ252"
+    },
+    {
+      "number": 256,
+      "question": "Что будет, если у нас нет подставленного типа, что не будет знать компилятор",
+      "sourceUrl": "https://easyoffer.ru/question/4415",
+      "studyId": "IQ252"
+    },
+    {
+      "number": 257,
+      "question": "Как можно взвести бит используя побитовую операцию ИЛИ",
+      "sourceUrl": "https://easyoffer.ru/question/4416",
+      "studyId": "IQ257"
+    },
+    {
+      "number": 258,
+      "question": "Почему многие пишут свою реализацию стандартной библиотеки",
+      "sourceUrl": "https://easyoffer.ru/question/4417",
+      "studyId": "IQ188"
+    },
+    {
+      "number": 259,
+      "question": "Как получить число с одной единицей в битах",
+      "sourceUrl": "https://easyoffer.ru/question/4418",
+      "studyId": "IQ257"
+    },
+    {
+      "number": 260,
+      "question": "Как поместить 0 в какой то бит числа",
+      "sourceUrl": "https://easyoffer.ru/question/4419",
+      "studyId": "IQ257"
+    },
+    {
+      "number": 261,
+      "question": "На какие виды можно разделить сериализация",
+      "sourceUrl": "https://easyoffer.ru/question/4420",
+      "studyId": "IQ261"
+    },
+    {
+      "number": 262,
+      "question": "Какие есть достоинства и недостатки у двоичной сериализация",
+      "sourceUrl": "https://easyoffer.ru/question/4421",
+      "studyId": "IQ261"
+    },
+    {
+      "number": 263,
+      "question": "Что помимо данных будет храниться при сериализации в json файду",
+      "sourceUrl": "https://easyoffer.ru/question/4422",
+      "studyId": "IQ261"
+    },
+    {
+      "number": 264,
+      "question": "Какие есть особенности при десериализации в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4423",
+      "studyId": "IQ261"
+    },
+    {
+      "number": 265,
+      "question": "Как бы реализовал для сериализации двунаправленный список",
+      "sourceUrl": "https://easyoffer.ru/question/4424",
+      "studyId": "IQ261"
+    },
+    {
+      "number": 266,
+      "question": "Как называется обходной вариант что бы передавать по значению а не по ссылке",
+      "sourceUrl": "https://easyoffer.ru/question/4425",
+      "studyId": "IQ266"
+    },
+    {
+      "number": 267,
+      "question": "Какую операцию над вектором можно сделать, которая вызовет много копирования",
+      "sourceUrl": "https://easyoffer.ru/question/4426",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 268,
+      "question": "Зачем с точки зрения лямбда функции могут понадобиться поля функторов",
+      "sourceUrl": "https://easyoffer.ru/question/4427",
+      "studyId": "IQ268"
+    },
+    {
+      "number": 269,
+      "question": "Что такое предекат",
+      "sourceUrl": "https://easyoffer.ru/question/4428",
+      "studyId": "IQ269"
+    },
+    {
+      "number": 270,
+      "question": "Как бы расширил функционал стандартного контейнера",
+      "sourceUrl": "https://easyoffer.ru/question/4429",
+      "studyId": "IQ270"
+    },
+    {
+      "number": 271,
+      "question": "Почему vector будет плохо работать если унаследоваться от него",
+      "sourceUrl": "https://easyoffer.ru/question/4430",
+      "studyId": "IQ270"
+    },
+    {
+      "number": 272,
+      "question": "На чем писал олимпиады в школе",
+      "sourceUrl": "https://easyoffer.ru/question/4431",
+      "studyId": "IQ272"
+    },
+    {
+      "number": 273,
+      "question": "Расскажи о проектах и технологии с которыми работал",
+      "sourceUrl": "https://easyoffer.ru/question/4432",
+      "studyId": "IQ160"
+    },
+    {
+      "number": 274,
+      "question": "Для работы с сетью использовали стандартные библиотеки или самописные",
+      "sourceUrl": "https://easyoffer.ru/question/4433",
+      "studyId": "IQ274"
+    },
+    {
+      "number": 275,
+      "question": "Почему писал самописную библиотеку",
+      "sourceUrl": "https://easyoffer.ru/question/4434",
+      "studyId": "IQ274"
+    },
+    {
+      "number": 276,
+      "question": "Чем отличаются статические и динамические библиотеки",
+      "sourceUrl": "https://easyoffer.ru/question/4435",
+      "studyId": "IQ276"
+    },
+    {
+      "number": 277,
+      "question": "Что представляют из себя статические библиотеки",
+      "sourceUrl": "https://easyoffer.ru/question/4436",
+      "studyId": "IQ276"
+    },
+    {
+      "number": 278,
+      "question": "Как вычислять значения на этапе компиляции",
+      "sourceUrl": "https://easyoffer.ru/question/4437",
+      "studyId": "IQ278"
+    },
+    {
+      "number": 279,
+      "question": "Как проверять что все работает в compile-time",
+      "sourceUrl": "https://easyoffer.ru/question/4438",
+      "studyId": "IQ278"
+    },
+    {
+      "number": 280,
+      "question": "Расскажи про проект",
+      "sourceUrl": "https://easyoffer.ru/question/4439",
+      "studyId": "IQ160"
+    },
+    {
+      "number": 281,
+      "question": "Что такое наследование",
+      "sourceUrl": "https://easyoffer.ru/question/4440",
+      "studyId": "IQ210"
+    },
+    {
+      "number": 282,
+      "question": "Что такое полиморфизм",
+      "sourceUrl": "https://easyoffer.ru/question/4441",
+      "studyId": "IQ207"
+    },
+    {
+      "number": 283,
+      "question": "Расскажи о недостатках ООП для себя",
+      "sourceUrl": "https://easyoffer.ru/question/4442",
+      "studyId": "IQ250"
+    },
+    {
+      "number": 284,
+      "question": "Что знаешь про ключевое слово virtual",
+      "sourceUrl": "https://easyoffer.ru/question/4443",
+      "studyId": "IQ087"
+    },
+    {
+      "number": 285,
+      "question": "Чисто виртуальный метод зачем он нужен и какой синтаксис",
+      "sourceUrl": "https://easyoffer.ru/question/4444",
+      "studyId": "IQ285"
+    },
+    {
+      "number": 286,
+      "question": "Что будет если пометить глобальную переменную как static",
+      "sourceUrl": "https://easyoffer.ru/question/4445",
+      "studyId": "IQ286"
+    },
+    {
+      "number": 287,
+      "question": "Какая есть аналогия static про видимость в cpp файле",
+      "sourceUrl": "https://easyoffer.ru/question/4446",
+      "studyId": "IQ286"
+    },
+    {
+      "number": 288,
+      "question": "Расскажи про передачу параметров в функции",
+      "sourceUrl": "https://easyoffer.ru/question/4447",
+      "studyId": "IQ107"
+    },
+    {
+      "number": 289,
+      "question": "Почему ссылка безопаснее для защиты от изменений",
+      "sourceUrl": "https://easyoffer.ru/question/4448",
+      "studyId": "IQ107"
+    },
+    {
+      "number": 290,
+      "question": "Расскажи о различиях ссылки и указателя",
+      "sourceUrl": "https://easyoffer.ru/question/4449",
+      "studyId": "IQ107"
+    },
+    {
+      "number": 291,
+      "question": "Расскажи про константные методы",
+      "sourceUrl": "https://easyoffer.ru/question/4450",
+      "studyId": "IQ104"
+    },
+    {
+      "number": 292,
+      "question": "Каким образом можно обойти константный метод",
+      "sourceUrl": "https://easyoffer.ru/question/4451",
+      "studyId": "IQ104"
+    },
+    {
+      "number": 293,
+      "question": "Какое преимущество у vector перед list",
+      "sourceUrl": "https://easyoffer.ru/question/4452",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 294,
+      "question": "Какая сложность доступа к элементу",
+      "sourceUrl": "https://easyoffer.ru/question/4453",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 295,
+      "question": "Какое преимущество у list перед vector",
+      "sourceUrl": "https://easyoffer.ru/question/4454",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 296,
+      "question": "Какие знаешь сортировки",
+      "sourceUrl": "https://easyoffer.ru/question/4455",
+      "studyId": "IQ045"
+    },
+    {
+      "number": 297,
+      "question": "Какие есть стандартные библиотеки с умными указателями",
+      "sourceUrl": "https://easyoffer.ru/question/3950",
+      "studyId": "IQ055"
+    },
+    {
+      "number": 298,
+      "question": "Какая основная проблема у Pointers",
+      "sourceUrl": "https://easyoffer.ru/question/4050",
+      "studyId": "IQ298"
+    },
+    {
+      "number": 299,
+      "question": "Какое присваивание разрешает unique_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4052",
+      "studyId": "IQ015"
+    },
+    {
+      "number": 300,
+      "question": "На основе чего несколько shared_ptr могут ссылаться на один указатель",
+      "sourceUrl": "https://easyoffer.ru/question/4054",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 301,
+      "question": "Как работает счетчик у shared_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4055",
+      "studyId": "IQ004"
+    },
+    {
+      "number": 302,
+      "question": "Shared_ptr потокобезопасный или нет Можно использовать в контексте нескольких потоков",
+      "sourceUrl": "https://easyoffer.ru/question/4057",
+      "studyId": "IQ093"
+    },
+    {
+      "number": 303,
+      "question": "Зачем нужен weak_ptr",
+      "sourceUrl": "https://easyoffer.ru/question/4059",
+      "studyId": "IQ156"
+    },
+    {
+      "number": 304,
+      "question": "Что такое циклическая зависимость и чем она грозит",
+      "sourceUrl": "https://easyoffer.ru/question/4061",
+      "studyId": "IQ060"
+    },
+    {
+      "number": 305,
+      "question": "Что происходит с vector при добавлении элемента",
+      "sourceUrl": "https://easyoffer.ru/question/4062",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 306,
+      "question": "Как работает момент realloc в vector",
+      "sourceUrl": "https://easyoffer.ru/question/4063",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 307,
+      "question": "Как использовать move семантику для vector",
+      "sourceUrl": "https://easyoffer.ru/question/4064",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 308,
+      "question": "Сложность операций с vector и list",
+      "sourceUrl": "https://easyoffer.ru/question/4065",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 309,
+      "question": "Какая сложность у операции push_back у vector",
+      "sourceUrl": "https://easyoffer.ru/question/4066",
+      "studyId": "IQ068"
+    },
+    {
+      "number": 310,
+      "question": "Какая сложность операции вставки у list",
+      "sourceUrl": "https://easyoffer.ru/question/4067",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 311,
+      "question": "Какая сложность удаления в list и vector по итератору",
+      "sourceUrl": "https://easyoffer.ru/question/4068",
+      "studyId": "IQ002"
+    },
+    {
+      "number": 312,
+      "question": "Когда будем использовать set, а когда unordered_set",
+      "sourceUrl": "https://easyoffer.ru/question/4069",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 313,
+      "question": "Какая сложность поиска в set и unordered_set",
+      "sourceUrl": "https://easyoffer.ru/question/4070",
+      "studyId": "IQ003"
+    },
+    {
+      "number": 314,
+      "question": "Что делает оператор delete",
+      "sourceUrl": "https://easyoffer.ru/question/4071",
+      "studyId": "IQ101"
+    },
+    {
+      "number": 315,
+      "question": "Какие есть тонкости при вызове виртуальной функции из конструктора или деструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4073",
+      "studyId": "IQ088"
+    },
+    {
+      "number": 316,
+      "question": "Как работает виртуальность в C++",
+      "sourceUrl": "https://easyoffer.ru/question/4075",
+      "studyId": "IQ087"
+    },
+    {
+      "number": 317,
+      "question": "Может ли быть конструктор виртуальным методом",
+      "sourceUrl": "https://easyoffer.ru/question/4076",
+      "studyId": "IQ317"
+    },
+    {
+      "number": 318,
+      "question": "Что такое override",
+      "sourceUrl": "https://easyoffer.ru/question/4078",
+      "studyId": "IQ189"
+    },
+    {
+      "number": 319,
+      "question": "Какие есть тонкости если летит исключение из конструктора",
+      "sourceUrl": "https://easyoffer.ru/question/4080",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 320,
+      "question": "Почему не стоит использовать double except",
+      "sourceUrl": "https://easyoffer.ru/question/4082",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 321,
+      "question": "Как называется идиома статического полиморфизма в C++",
+      "sourceUrl": "https://easyoffer.ru/question/4084",
+      "studyId": "IQ207"
+    },
+    {
+      "number": 322,
+      "question": "Как пофиксить проблему, когда mutex является локальной переменной",
+      "sourceUrl": "https://easyoffer.ru/question/4085",
+      "studyId": "IQ322"
+    },
+    {
+      "number": 323,
+      "question": "Какие есть lock_guard в стандартной библиотеке С++",
+      "sourceUrl": "https://easyoffer.ru/question/4087",
+      "studyId": "IQ323"
+    },
+    {
+      "number": 324,
+      "question": "Какие есть виды mutex в стандартной библиотеке",
+      "sourceUrl": "https://easyoffer.ru/question/4089",
+      "studyId": "IQ012"
+    },
+    {
+      "number": 325,
+      "question": "Как можно синхронизировать взаимодействия между потоками",
+      "sourceUrl": "https://easyoffer.ru/question/4091",
+      "studyId": "IQ019"
+    },
+    {
+      "number": 326,
+      "question": "Как сделать что бы пользователь класса не мог создать объект в heap",
+      "sourceUrl": "https://easyoffer.ru/question/4093",
+      "studyId": "IQ326"
+    },
+    {
+      "number": 327,
+      "question": "Как ограничить количество экземпляров класса",
+      "sourceUrl": "https://easyoffer.ru/question/4096",
+      "studyId": "IQ327"
+    },
+    {
+      "number": 328,
+      "question": "Как перегрузить постфиксный и префиксный инкремент в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4098",
+      "studyId": "IQ328"
+    },
+    {
+      "number": 329,
+      "question": "Перегрузка логический операций это Best practice или Bad practice",
+      "sourceUrl": "https://easyoffer.ru/question/4100",
+      "studyId": "IQ329"
+    },
+    {
+      "number": 330,
+      "question": "Какие есть нюансы при взаимодействии программ С и С++",
+      "sourceUrl": "https://easyoffer.ru/question/4110",
+      "studyId": "IQ330"
+    },
+    {
+      "number": 331,
+      "question": "Что происходит с динамической памятью при взаимодействии программ на С и С++",
+      "sourceUrl": "https://easyoffer.ru/question/4111",
+      "studyId": "IQ330"
+    },
+    {
+      "number": 332,
+      "question": "Как отключить mangling",
+      "sourceUrl": "https://easyoffer.ru/question/4112",
+      "studyId": "IQ330"
+    },
+    {
+      "number": 333,
+      "question": "Что надо учитывать при взаимодействии С и С++ для exception",
+      "sourceUrl": "https://easyoffer.ru/question/4113",
+      "studyId": "IQ330"
+    },
+    {
+      "number": 334,
+      "question": "Когда начинают жить и умирают глобальные и локальные переменные в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4114",
+      "studyId": "IQ220"
+    },
+    {
+      "number": 335,
+      "question": "Как устроены строки в С++",
+      "sourceUrl": "https://easyoffer.ru/question/4115",
+      "studyId": "IQ235"
+    },
+    {
+      "number": 336,
+      "question": "Какая есть оптимизация в строках С++",
+      "sourceUrl": "https://easyoffer.ru/question/4116",
+      "studyId": "IQ235"
+    },
+    {
+      "number": 337,
+      "question": "Какое преимущество даст строка построенная на list",
+      "sourceUrl": "https://easyoffer.ru/question/4117",
+      "studyId": "IQ235"
+    },
+    {
+      "number": 338,
+      "question": "Что происходит с памятью процесса, когда мы его fork-аем в Linux",
+      "sourceUrl": "https://easyoffer.ru/question/4118",
+      "studyId": "IQ338"
+    },
+    {
+      "number": 339,
+      "question": "Чем отличается выброс исключения от аборта",
+      "sourceUrl": "https://easyoffer.ru/question/4119",
+      "studyId": "IQ219"
+    },
+    {
+      "number": 340,
+      "question": "Когда при вызове exception не зовутся деструкторы",
+      "sourceUrl": "https://easyoffer.ru/question/4120",
+      "studyId": "IQ219"
+    },
+    {
+      "number": 341,
+      "question": "В чем особенность выброса исключений в конструкторе и деструкторе",
+      "sourceUrl": "https://easyoffer.ru/question/4121",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 342,
+      "question": "Какие знаешь гарантии безопасности",
+      "sourceUrl": "https://easyoffer.ru/question/4122",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 343,
+      "question": "Строгая гарантия безопасности",
+      "sourceUrl": "https://easyoffer.ru/question/4123",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 344,
+      "question": "Базовая гарантия безопасности",
+      "sourceUrl": "https://easyoffer.ru/question/4124",
+      "studyId": "IQ009"
+    },
+    {
+      "number": 345,
+      "question": "О чем следует помнить при вызове исключений в конструкторе",
+      "sourceUrl": "https://easyoffer.ru/question/4125",
+      "studyId": "IQ026"
+    },
+    {
+      "number": 346,
+      "question": "О чем следует помнить при вызове исключений в деструкторе",
+      "sourceUrl": "https://easyoffer.ru/question/4126",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 347,
+      "question": "Как можно проверить что нет double exception",
+      "sourceUrl": "https://easyoffer.ru/question/4127",
+      "studyId": "IQ010"
+    },
+    {
+      "number": 348,
+      "question": "Как проверить вылетело ли исключение в каком то из потоков",
+      "sourceUrl": "https://easyoffer.ru/question/4128",
+      "studyId": "IQ348"
+    },
+    {
+      "number": 349,
+      "question": "При помощи чего сохраняются exception",
+      "sourceUrl": "https://easyoffer.ru/question/4129",
+      "studyId": "IQ348"
+    }
+  ]
+}

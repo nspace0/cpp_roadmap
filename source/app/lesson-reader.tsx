@@ -2,6 +2,7 @@ import {useEffect,useRef,useState,type ReactNode} from 'react';
 import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,Clock,Copy,ExternalLink,FileText,GraduationCap,Lightbulb,Printer} from 'lucide-react';
 import {type Lesson,readingMinutes} from './lessons';
 import {ScopeBoundary} from './scope';
+import {interviewsByTopic} from './interview-data';
 import {type Topic,type Mod,range,difficulty,allTopics} from './map-config';
 
 // A small safe inline renderer: lesson text stays text, never executable HTML.
@@ -11,8 +12,8 @@ export function Inline({text}:{text:string}){
 function Paragraphs({text}:{text:string}){return <>{text.split(/\n\n+/).filter(Boolean).map((p,i)=><p key={i}><Inline text={p}/></p>)}</>}
 function Items({items,ordered=false}:{items:string[];ordered?:boolean}){const children=items.map((x,i)=><li key={i}><Inline text={x}/></li>);return ordered?<ol>{children}</ol>:<ul>{children}</ul>}
 
-type Props={lesson:Lesson;topic:Topic;module:Mod;status:number;disabled:boolean;onStatus:(n:number)=>void;onTopic:(code:string)=>void;onBack:()=>void};
-export default function LessonReader({lesson,topic,module,status,disabled,onStatus,onTopic,onBack}:Props){
+type Props={lesson:Lesson;topic:Topic;module:Mod;status:number;disabled:boolean;onStatus:(n:number)=>void;onTopic:(code:string)=>void;onBack:()=>void;onInterview:(id:string)=>void};
+export default function LessonReader({lesson,topic,module,status,disabled,onStatus,onTopic,onBack,onInterview}:Props){
  const body=useRef<HTMLDivElement>(null);
  const [copied,setCopied]=useState(false),[copyError,setCopyError]=useState('');
  const index=module.rows.findIndex(t=>t.code===topic.code),previous=module.rows[index-1],next=module.rows[index+1];
@@ -30,6 +31,7 @@ export default function LessonReader({lesson,topic,module,status,disabled,onStat
    <div className="lesson-reading-meta"><span><Clock size={15}/>{readingMinutes(lesson)} мин чтения с разбором</span><span className={`difficulty d-${topic.level.split(' ')[0]}`}>{difficulty[topic.level.split(' ')[0]]||topic.level}</span><span>Практика: {range(topic.practice)} ч по плану</span></div>
    <p className="lesson-context"><b>Опора для урока:</b> {module.need} · тема {index+1} из {module.rows.length} в модуле.</p>
    {!!lesson.related?.length&&<div className="lesson-related"><b>Связанные уроки</b><div>{lesson.related.map(code=>{const t=allTopics.find(t=>t.code===code);return t?<button key={code} onClick={()=>onTopic(code)}>{code} · {t.title}</button>:null})}</div></div>}
+   {!!interviewsByTopic[topic.code]?.length&&<details className="lesson-interview-links"><summary>Вопросы собеседования по теме · {interviewsByTopic[topic.code].length} разборов</summary><div><p>Отметки готовности к собеседованию ведутся отдельно от практики урока.</p>{interviewsByTopic[topic.code].map(c=><button key={c.id} onClick={()=>onInterview(c.id)}>{c.id} · {c.title}</button>)}</div></details>}
    <div className="lesson-outcomes"><div><GraduationCap size={21}/><h2>После урока ты сможешь</h2></div><Items items={lesson.outcomes}/></div>
    {section('theory','Разбираемся в теме',<>{lesson.sections.map((s,i)=><section className="lesson-theory-block" key={i}><h3>{s.title}</h3>{s.paragraphs.map((p,j)=><Paragraphs text={p} key={j}/>)}{s.bullets?.length?<Items items={s.bullets}/>:null}</section>)}<aside className="lesson-pitfalls"><h3><Lightbulb size={19}/>На чём легко ошибиться</h3><Items items={lesson.pitfalls}/></aside></>)}
    {section('example',lesson.example.title,<><Paragraphs text={lesson.example.intro}/><div className="lesson-code"><div className="lesson-codebar"><span>{lesson.example.language}</span><button onClick={()=>void copy()}>{copied?<Check size={15}/>:<Copy size={15}/>} {copied?'Скопировано':'Копировать'}</button></div><pre tabIndex={0} aria-label="Пример кода или расчёта"><code>{lesson.example.code}</code></pre></div>{copyError&&<p role="status">{copyError}</p>}<h3>Почему это работает</h3><Items items={lesson.example.explanation} ordered/></>)}

@@ -1,3 +1,4 @@
+import {portableInterviewSeed} from './interview-progress';
 import {modules,allTopics,type Entry,type Update} from './map-config';
 
 export const STORAGE_KEY='cpp-roadmap-offline-v1';
@@ -85,5 +86,5 @@ export function portableHtml(progress:Snapshot){
  const icon=document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.href||'';
  if(!style||!code)throw Error('Не удалось прочитать приложение для сохранения.');
  const safe=JSON.stringify(progress).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
- return `<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'"><title>C++ Roadmap — карта и учебник</title><link rel="icon" href="${icon}"><style id="roadmap-styles">${style}</style></head><body><div id="root"></div><noscript>Для карты нужен JavaScript. Интернет и аккаунт не нужны.</noscript><script id="roadmap-seed" type="application/json">${safe}</script><script id="roadmap-app">${code}</script></body></html>`;
+ return `<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'"><title>C++ Roadmap — карта и учебник</title><link rel="icon" href="${icon}"><style id="roadmap-styles">${style}</style></head><body><div id="root"></div><noscript>Для карты нужен JavaScript. Интернет и аккаунт не нужны.</noscript><script id="roadmap-seed" type="application/json">${safe}</script><script id="interview-seed" type="application/json">${portableInterviewSeed()}</script><script id="roadmap-app">${code}</script></body></html>`;
 }
