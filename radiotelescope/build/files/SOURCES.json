@@ -1,0 +1,101 @@
+{
+  "edition": "2026-10-18",
+  "originals": [
+    {
+      "file": "DSPIRA-Horn-Can-2021.pdf",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Horn%26Can_Assembly_2021.pdf",
+      "sha256": "98c635959e3706d503b695a1ad2ff7fab3ed6e820ddea81132093ad28c9a3f55"
+    },
+    {
+      "file": "DSPIRA-Cradle-2021.pdf",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Cradle_Assembly_2021.pdf",
+      "sha256": "424de3d46ce455e0206464bec89b7f631585a5d23de952b5e0cdf7bf9031caf6"
+    },
+    {
+      "file": "DSPIRA-Stand-2021.pdf",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Stand_Assembly_2021.pdf",
+      "sha256": "da691c7ced3071d68fdc93c21e267688c72a1dc10780b0d1bef42f5834a047c2"
+    },
+    {
+      "file": "DSPIRA-LICENSE.txt",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/LICENSE",
+      "sha256": "6ca5355b4765d27f213ee6854d9e68606fc83be3b8aa881ce8fe56a2ba928a8c"
+    }
+  ],
+  "adaptations": [
+    "horn-metric.svg: translated dimensions, not a full-size cutting template.",
+    "receiver-chain.svg: V4L + H1 + 20 m LMR-240 engineering adaptation; not hardware-tested."
+  ],
+  "sources": {
+    "horn": {
+      "title": "WVU DSPIRA: Horn & Can Assembly, 2021",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Horn%26Can_Assembly_2021.pdf"
+    },
+    "cradle": {
+      "title": "WVU DSPIRA: Cradle Assembly, 2021",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Cradle_Assembly_2021.pdf"
+    },
+    "stand": {
+      "title": "WVU DSPIRA: Stand Assembly, 2021",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/FilesUploaded/Stand_Assembly_2021.pdf"
+    },
+    "v4l": {
+      "title": "RTL-SDR Blog: V4L, драйвер и питание",
+      "url": "https://www.rtl-sdr.com/v4L/"
+    },
+    "v4l-release": {
+      "title": "RTL-SDR Blog: смена V4 на V4L, 11 августа 2026",
+      "url": "https://www.rtl-sdr.com/rtl-sdr-blog-v4l-lite-now-available-for-purchase/"
+    },
+    "store": {
+      "title": "RTL-SDR Blog: текущие модели, цены и доставка",
+      "url": "https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/"
+    },
+    "h1": {
+      "title": "Nooelec: SAWbird+ H1, SKU 100811",
+      "url": "https://www.nooelec.com/store/sawbird-h1.html"
+    },
+    "h1-power": {
+      "title": "Nooelec: питание и направление SAWbird",
+      "url": "https://support.nooelec.com/hc/en-us/articles/360011133694-SAWbird-LNA-Filters"
+    },
+    "cable": {
+      "title": "Times Microwave: LMR-240, паспорт 50 Ω",
+      "url": "https://timesmicrowave.com/wp-content/uploads/2022/06/lmr-240-datasheet.pdf"
+    },
+    "driver": {
+      "title": "RTL-SDR Blog: исходники драйвера, зафиксированная версия",
+      "url": "https://github.com/rtlsdrblog/rtl-sdr-blog/tree/aed0ea19f3a273370a13c9009b96313c75d54c7b"
+    },
+    "windows": {
+      "title": "RTL-SDR Blog: установка драйвера в Windows",
+      "url": "https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/"
+    },
+    "releases": {
+      "title": "RTL-SDR Blog: Windows Release.zip",
+      "url": "https://github.com/rtlsdrblog/rtl-sdr-blog/releases"
+    },
+    "astro": {
+      "title": "Astropy: SkyCoord и преобразования координат",
+      "url": "https://docs.astropy.org/en/stable/coordinates/index.html"
+    },
+    "hi": {
+      "title": "Bonn: All-sky H I Profile Search",
+      "url": "https://www.astro.uni-bonn.de/hisurvey/AllSky_profiles/"
+    },
+    "radio": {
+      "title": "NRAO: Radio Telescopes and Radiometers",
+      "url": "https://www.cv.nrao.edu/~sransom/web/Ch3.html"
+    },
+    "numpy": {
+      "title": "NumPy: FFT и частотная ось",
+      "url": "https://numpy.org/doc/stable/reference/routines.fft.html"
+    },
+    "can-assembly": {
+      "title": "WVU DSPIRA: зонд, отверстие и закрытие горловины тары",
+      "url": "https://github.com/WVURAIL/dspira-lessons/blob/b6b04cf5cd5d756ca60888e317af1a5a3a0f0337/_posts/2020-08-17-AssemblingtheCAN.md"
+    }
+  },
+  "license_notice": "Original DSPIRA documents: MIT, Copyright (c) 2020 WVU Radio Astronomy Instrumentation Lab.",
+  "validation_limits": "Software tested with synthetic files. No physical RF tests or full browser visual QA."
+}

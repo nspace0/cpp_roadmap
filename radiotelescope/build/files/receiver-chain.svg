@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 880" role="img" aria-labelledby="title desc">
+<title id="title">Приёмный тракт радиотелескопа и питание Bias-Tee</title><desc id="desc">RF идёт от зонда через короткий кабель и INPUT усилителя SAWbird H1 к OUTPUT, длинному LMR240 и SDR. DC 4.5 вольта идёт обратно от SDR к OUTPUT усилителя. ПК соединён коротким USB.</desc>
+<defs><marker id="rf" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#1c6971"/></marker><marker id="dc" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#b16c13"/></marker><style>text{font-family:Arial,sans-serif;fill:#17343b}.h{font-size:29px;font-weight:700}.t{font-size:22px}.s{font-size:18px}.box{fill:#eff6f4;stroke:#87aea9;stroke-width:2}.rf{stroke:#1c6971;stroke-width:4;fill:none;marker-end:url(#rf)}.dc{stroke:#b16c13;stroke-width:4;fill:none;marker-end:url(#dc)}</style></defs>
+<rect width="1100" height="880" fill="#fff"/><text x="45" y="52" class="h">Одна цепь RF · один источник питания</text><text x="45" y="88" class="s">Все RF-соединения 50 Ω. SMA — обычный, не RP-SMA. Корпуса и кабель закреплены отдельно.</text>
+<rect class="box" x="55" y="120" width="560" height="90" rx="12"/><text x="78" y="158" class="t">Рупор + зонд</text><text x="78" y="188" class="s">Панельное гнездо SMA female → кабель male</text>
+<path class="rf" d="M335 210V280"/><text x="366" y="251" class="s">RG-316 male–male · 15–30 см</text>
+<rect class="box" x="55" y="288" width="560" height="120" rx="12"/><text x="78" y="322" class="s">INPUT · SMA female</text><text x="78" y="357" class="t">Nooelec SAWbird+ H1 · SKU 100811</text><text x="78" y="389" class="s">OUTPUT · SMA female · вход питания по коаксиалу</text>
+<path class="rf" d="M335 408V515"/><text x="365" y="455" class="s">LMR-240 50 Ω · 20 м</text><text x="365" y="482" class="s">SMA male на обоих концах</text>
+<rect class="box" x="55" y="525" width="560" height="110" rx="12"/><text x="78" y="562" class="t">RTL-SDR Blog V4L · SMA female</text><text x="78" y="597" class="s">Bias-Tee 4.5 V / до 180 mA · включается программно</text>
+<path class="rf" d="M335 635V700"/><text x="366" y="672" class="s">USB данных · 0.5–1 м</text>
+<rect class="box" x="55" y="710" width="560" height="75" rx="12"/><text x="78" y="755" class="t">ПК · Windows / нативный Linux</text>
+<path class="dc" d="M624 575H860V389H624"/><text x="685" y="333" class="t" style="fill:#9b5e0c">DC идёт к LNA</text><text x="665" y="634" class="s">Номинально 120 mA</text><text x="665" y="666" class="s">Падение на 20 м ≈0.056 V</text><text x="665" y="696" class="s">Без учёта разъёмов</text>
+<text x="45" y="824" class="s">MicroUSB и пины питания LNA не подключены. DC-block между SDR и LNA здесь не ставится.</text><text x="45" y="853" class="s">Перекоммутация — с выключенным Bias-Tee и отключённым USB. Нагрузка прямо к SDR: Bias-Tee OFF.</text>
+</svg>

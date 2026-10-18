@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">Рупор DSPIRA 2021 — размеры панелей в миллиметрах</title><desc id="desc">Две большие и две малые трапециевидные панели. Размеры переведены из исходного PDF WVU. Не шаблон печати в натуральную величину.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0 0L7 3.5L0 7Z" fill="#245e70"/></marker><style>text{font-family:Arial,sans-serif;fill:#17343b}.h{font-size:29px;font-weight:700}.t{font-size:20px}.small{font-size:17px}.dim{stroke:#245e70;stroke-width:1.6;marker-start:url(#arrow);marker-end:url(#arrow)}.guide{stroke:#8aabb3;stroke-dasharray:5 4;fill:none}</style></defs>
+<rect width="1200" height="850" fill="#fff"/>
+<text x="48" y="52" class="h">DSPIRA 2021 · рупор · все размеры в мм</text>
+<text x="48" y="88" class="t">Перевод исходного раскроя WVU. Не шаблон 1:1. Фольга направлена внутрь.</text>
+<text x="48" y="119" class="small">Высота указана на плоской трапеции; это не осевая длина собранного рупора.</text>
+<text x="100" y="174" class="h">Панель A · 2 штуки</text><text x="670" y="174" class="h">Панель B · 2 штуки</text>
+<path d="M100 240H438.614L307.174 568.613H231.44Z" fill="#e3f0ef" stroke="#225f68" stroke-width="2"/>
+<line class="dim" x1="100" y1="211" x2="438.614" y2="211"/><text x="215" y="201" class="t">752.475</text>
+<line class="dim" x1="231.44" y1="601" x2="307.174" y2="601"/><text x="218" y="633" class="t">168.275</text>
+<path class="guide" d="M100 240V205M438.614 240V205M307.174 568.613H496M438.614 240H496"/>
+<line class="dim" x1="484" y1="240" x2="484" y2="568.613"/><text x="506" y="420" class="t" transform="rotate(-90 506 420)">730.25</text>
+<text x="166" y="383" class="small">29⅝″ / 6⅝″</text><text x="166" y="413" class="small">высота 28¾″</text>
+<path d="M675 240H949.32L835.914 575.756H788.406Z" fill="#f8eeda" stroke="#8a6729" stroke-width="2"/>
+<line class="dim" x1="675" y1="211" x2="949.32" y2="211"/><text x="777" y="201" class="t">609.6</text>
+<line class="dim" x1="788.406" y1="609" x2="835.914" y2="609"/><text x="762" y="640" class="t">104.775</text>
+<path class="guide" d="M675 240V205M949.32 240V205M835.914 575.756H1007M949.32 240H1007"/>
+<line class="dim" x1="995" y1="240" x2="995" y2="575.756"/><text x="1024" y="433" class="t" transform="rotate(-90 1024 433)">746.125</text>
+<text x="734" y="383" class="small">24″ / 4⅛″</text><text x="734" y="413" class="small">высота 29⅜″</text>
+<path d="M48 671H1152" stroke="#c4d7db"/>
+<text x="48" y="708" class="t">Зонд версии 2021: медная заготовка 52.5 мм; ось отверстия — 52.5 мм от закрытого торца.</text>
+<text x="48" y="739" class="small">Узкие стороны состыковать с F-style тарой. До резки измерить реальную банку и толщину панелей.</text>
+<text x="48" y="768" class="small">Большие числа после запятой — точный перевод дюймов ×25.4, не заявленный производственный допуск.</text>
+<text x="48" y="805" class="small">Источник: WVU RAIL, Horn &amp; Can Assembly 2021, стр. 2 и 4. Адаптация: подписи и единицы. Лицензия MIT.</text>
+</svg>

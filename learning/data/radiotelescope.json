@@ -2,10 +2,10 @@
   "id": "radiotelescope",
   "title": "Радиотелескоп: от научного вопроса до проверенного наблюдения",
   "version": "1.0.0",
-  "updatedAt": "2026-10-17",
+  "updatedAt": "2026-10-18",
   "positioning": "Приёмный учебный проект: требования и открытые данные → модель → низковольтный стенд → антенна и ручное наблюдение → независимые контроли и воспроизводимый результат. Основной кандидат — спектрометр галактической линии H I около 1420.40575 МГц, если площадка и ресурсы позволяют. Никаких обязательных покупок до проверки требований. Каждое задание подтверждает только указанные критерии; список пробелов открыт и не исчерпывает радиоастрономию, RF-инженерию и приборостроение. Время общее с другими картами, а аппаратные измерения могут требовать дополнительных сеансов и доступа к приборам.",
   "baseline": {
-    "description": "Сначала расчёты, синтетические и открытые данные; затем приёмный стенд и доступная наземная установка. Только намеренный приём, без эфирных испытательных передач. Конкретные бюджет, место, расстояния кабелей и оборудование задаются в требованиях.",
+    "description": "Конкретная сборка: рупор DSPIRA 2021, RTL-SDR Blog V4L, SAWbird+ H1 и 20 м LMR-240 после усилителя. Для Малгобека и планового бюджета 40–50 тыс. ₽ есть отдельное руководство с чертежами, ведомостью закупок и первым запуском. Начало — сухая временная наземная установка.",
     "mainTarget": "Галактическая линия H I, около 1420.40575 МГц; достижимость проверяется расчётом и наблюдениями.",
     "dataContract": "cf32_le: чередующиеся I/Q float32 little-endian; обязательные версионированные метаданные, UTC/источник часов, индекс отсчёта, масштаб и пропуски; SigMF либо документированный sidecar.",
     "softwareLink": "Отдельная карта «ПО радиотелескопа»: replay, приём, обработка, хранение, CLI/GUI и испытания отказов.",
@@ -188,7 +188,8 @@
       ],
       "sources": [
         "sara-start",
-        "era-radiation"
+        "era-radiation",
+        "build-guide"
       ],
       "connections": [
         {
@@ -261,7 +262,8 @@
       "sources": [
         "era-lines",
         "jove-start",
-        "osrt-projects"
+        "osrt-projects",
+        "build-guide"
       ]
     },
     {
@@ -319,7 +321,8 @@
       ],
       "sources": [
         "nasa-requirements",
-        "nasa-engineering"
+        "nasa-engineering",
+        "build-guide"
       ]
     },
     {
@@ -745,7 +748,8 @@
       ],
       "sources": [
         "era-radio",
-        "mit-srt"
+        "mit-srt",
+        "build-guide"
       ]
     },
     {
@@ -803,7 +807,8 @@
       ],
       "sources": [
         "osrt-projects",
-        "era-radio"
+        "era-radio",
+        "build-guide"
       ]
     },
     {
@@ -860,7 +865,8 @@
         "Вне карты: измерение антенн в оборудованной RF-лаборатории"
       ],
       "sources": [
-        "adi-match"
+        "adi-match",
+        "build-guide"
       ]
     },
     {
@@ -919,7 +925,8 @@
       ],
       "sources": [
         "adi-noise",
-        "ti-noise"
+        "ti-noise",
+        "build-guide"
       ]
     },
     {
@@ -979,7 +986,8 @@
       "sources": [
         "adi-noise",
         "adi-adc",
-        "nrao-rfi"
+        "nrao-rfi",
+        "build-guide"
       ]
     },
     {
@@ -1038,7 +1046,8 @@
       "sources": [
         "adi-match",
         "ti-noise",
-        "gbt-design"
+        "gbt-design",
+        "build-guide"
       ]
     },
     {
@@ -1096,7 +1105,8 @@
       ],
       "sources": [
         "adi-adc",
-        "ti-noise"
+        "ti-noise",
+        "build-guide"
       ]
     },
     {
@@ -1154,7 +1164,8 @@
       ],
       "sources": [
         "jove-safe",
-        "adi-adc"
+        "adi-adc",
+        "build-guide"
       ],
       "connections": [
         {
@@ -1220,7 +1231,8 @@
         "Вне карты: аппаратные PPS и GPSDO"
       ],
       "sources": [
-        "sigmf"
+        "sigmf",
+        "build-guide"
       ],
       "connections": [
         {
@@ -1466,7 +1478,8 @@
       ],
       "sources": [
         "osrt-projects",
-        "mit-astra"
+        "mit-astra",
+        "build-guide"
       ]
     },
     {
@@ -1525,7 +1538,8 @@
       ],
       "sources": [
         "mit-srt",
-        "jove-safe"
+        "jove-safe",
+        "build-guide"
       ]
     },
     {
@@ -1585,7 +1599,8 @@
       "sources": [
         "jove-safe",
         "jove-setup",
-        "nrao-rfi"
+        "nrao-rfi",
+        "build-guide"
       ]
     },
     {
@@ -1645,7 +1660,8 @@
       ],
       "sources": [
         "adi-window",
-        "adi-adc"
+        "adi-adc",
+        "build-guide"
       ],
       "connections": [
         {
@@ -1713,7 +1729,8 @@
       ],
       "sources": [
         "astro-spectral",
-        "nrao-hi-frequency"
+        "nrao-hi-frequency",
+        "build-guide"
       ]
     },
     {
@@ -1772,7 +1789,8 @@
       ],
       "sources": [
         "aips-single",
-        "era-lines"
+        "era-lines",
+        "build-guide"
       ]
     },
     {
@@ -1831,7 +1849,8 @@
       ],
       "sources": [
         "mit-srt",
-        "gbt-procedures"
+        "gbt-procedures",
+        "build-guide"
       ]
     },
     {
@@ -1891,7 +1910,8 @@
       "sources": [
         "nrao-rfi",
         "nrao-cal",
-        "nasa-verification"
+        "nasa-verification",
+        "build-guide"
       ]
     },
     {
@@ -1949,7 +1969,8 @@
       ],
       "sources": [
         "hi-profiles",
-        "aips-single"
+        "aips-single",
+        "build-guide"
       ]
     },
     {
@@ -2007,7 +2028,8 @@
       ],
       "sources": [
         "nist-uncertainty",
-        "nasa-verification"
+        "nasa-verification",
+        "build-guide"
       ]
     },
     {
@@ -2067,7 +2089,8 @@
       "sources": [
         "sigmf",
         "mit-archive",
-        "nasa-requirements"
+        "nasa-requirements",
+        "build-guide"
       ],
       "connections": [
         {
@@ -2135,7 +2158,8 @@
       ],
       "sources": [
         "nasa-verification",
-        "mit-archive"
+        "mit-archive",
+        "build-guide"
       ]
     },
     {
@@ -2977,6 +3001,11 @@
       "title": "MIT Haystack — Software-defined Radio and Digital RF",
       "url": "https://www.haystack.mit.edu/geospace/geospace-projects/software-defined-radio/",
       "checkedAt": "2026-10-17"
+    },
+    "build-guide": {
+      "title": "Практическая сборка: комплект, чертежи и пошаговое руководство",
+      "url": "https://nspace0.github.io/cpp_roadmap/radiotelescope/build/",
+      "checkedAt": "2026-10-18"
     }
   },
   "courseCrosswalk": [

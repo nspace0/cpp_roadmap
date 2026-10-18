@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {build} from '../source/node_modules/esbuild/lib/main.js';
 import {prepareCourseScopes} from './prepare-scope.mjs';
 import {MAPS,COURSES,GROUPS} from './catalog.mjs';
+import {buildRadioGuide} from './radio-build/build.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url)),repo=path.dirname(root);
 const read=p=>fs.readFile(path.join(root,p),'utf8');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -17,7 +18,7 @@ for(const map of COURSES){
  const total=data.lessons.reduce((a,l)=>a.map((v,i)=>v+l.theoryHours[i]+l.practiceHours[i]),[0,0]);
  const description=typeof data.positioning==='string'?data.positioning:data.positioning.description||'Теория, самостоятельные задания, проверка результата и границы каждой темы.';
  let html=template;
- for(const [key,value] of Object.entries({TITLE:escape(data.title),SHORT_TITLE:escape(map.title.toLocaleUpperCase('ru')),DESCRIPTION:escape(description),BASELINE:escape(map.baseline),COUNT:data.lessons.length,MODULES:data.modules.length,CSS:style+'\n'+scopeStyle,DATA:safe(data),SCOPE:safe(scope),APP:app}))html=html.replaceAll('__'+key+'__',String(value));
+ for(const [key,value] of Object.entries({PROJECT_LINK:['radiotelescope','radio-software'].includes(id)?'<div class="scope-invite"><b>Практическая сборка радиотелескопа:</b> конкретные модели, бюджет, чертежи, соединения, запись IQ и первое наблюдение. <a href="'+(id==='radiotelescope'?'build/':'../radiotelescope/build/')+'">Открыть руководство →</a></div>':'',TITLE:escape(data.title),SHORT_TITLE:escape(map.title.toLocaleUpperCase('ru')),DESCRIPTION:escape(description),BASELINE:escape(map.baseline),COUNT:data.lessons.length,MODULES:data.modules.length,CSS:style+'\n'+scopeStyle,DATA:safe(data),SCOPE:safe(scope),APP:app}))html=html.replaceAll('__'+key+'__',String(value));
  if(/__(TITLE|SHORT_TITLE|DESCRIPTION|BASELINE|COUNT|MODULES|CSS|DATA|SCOPE|APP)__/.test(html))throw Error('Unfilled placeholder '+id);
  await fs.mkdir(path.join(repo,map.path),{recursive:true});await fs.writeFile(path.join(repo,map.path,'index.html'),html);
  meta.push({id,title:data.title,lessons:data.lessons.length,modules:data.modules.length,hours:total,gaps:data.gaps.length,bytes:Buffer.byteLength(html)});
@@ -31,4 +32,5 @@ for(const stage of journey.stages)for(const ref of stage.refs){const lesson=cour
 const hub=(await read('hub-template.html')).replace('__CARDS__',cardHtml).replace('__APP__',hubApp).replace('__HUB_DATA__',safe({cards:cards.map(m=>({id:m.id})),journey}));
 await fs.mkdir(path.join(repo,'maps'),{recursive:true});await fs.writeFile(path.join(repo,'maps/index.html'),hub);
 await fs.writeFile(path.join(root,'data/build-summary.json'),JSON.stringify(meta,null,2)+'\n');
+await buildRadioGuide();
 console.log(JSON.stringify(meta));
