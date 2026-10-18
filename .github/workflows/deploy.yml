@@ -3,11 +3,11 @@ name: Obfuscate and Deploy Website
 on:
   push:
     branches:
-      - main # или master, смотря какая у вас основная ветка
+      - main # Укажи master, если твоя ветка называется так
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Зафиксировали стабильную версию, чтобы не ловить новые предупреждения ОС
     steps:
       - name: Checkout private code
         uses: actions/checkout@v4
@@ -15,15 +15,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: 20
+          node-version: '22' # Исправили опечатку (было node-size) и обновили версию
 
       - name: Install Obfuscator
         run: npm install -g javascript-obfuscator
 
       - name: Obfuscate JS files
         run: |
-          # Этот скрипт находит все JS файлы и превращает их в нечитаемый код
-          # Если у вас только HTML/CSS, этот шаг просто пропустится
+          # Скрипт шифрует JS код. Если у тебя только HTML/CSS — он просто пропустит этот шаг
           find . -name "*.js" -not -path "*/node_modules/*" -exec javascript-obfuscator {} --output {} \;
 
       - name: Push to Public Repository
