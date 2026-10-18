@@ -1,0 +1,38 @@
+name: Obfuscate and Deploy Website
+
+on:
+  push:
+    branches:
+      - main # или master, смотря какая у вас основная ветка
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+
+      - name: Install Obfuscator
+        run: npm install -g javascript-obfuscator
+
+      - name: Obfuscate JS files
+        run: |
+          # Этот скрипт находит все JS файлы и превращает их в нечитаемый код
+          # Если у вас только HTML/CSS, этот шаг просто пропустится
+          find . -name "*.js" -not -path "*/node_modules/*" -exec javascript-obfuscator {} --output {} \;
+
+      - name: Push to Public Repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: '.'
+          destination-github-username: 'nspace0'
+          destination-repository-name: 'round'
+          user-email: 'bulguchev2018@gmail.com'
+          target-branch: 'main'
