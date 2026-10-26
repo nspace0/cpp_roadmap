@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install Linux tools
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gdb gdbserver g++ cmake ninja-build nasm
       - name: Extract published archive and verify sources
@@ -43,6 +45,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
