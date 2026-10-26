@@ -1,3 +1,5 @@
+import {guardStaleProgress} from '../progress-backup/stale-guard.mjs';
+guardStaleProgress(['radio-build-progress-v1']);
 import {createBuildProgress,cableEstimate} from './core.mjs';
 const data=JSON.parse(document.getElementById('build-data').textContent),key='radio-build-progress-v1';
 const $=s=>document.querySelector(s);let seed=null,warning='';

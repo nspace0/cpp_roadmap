@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {build} from '../source/node_modules/esbuild/lib/main.js';
 import {prepareCourseScopes} from './prepare-scope.mjs';
 import {MAPS,COURSES,GROUPS} from './catalog.mjs';
+import {buildBackupSchema} from './progress-backup/schema.mjs';
 import {buildRadioGuide} from './radio-build/build.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url)),repo=path.dirname(root);
 const read=p=>fs.readFile(path.join(root,p),'utf8');
@@ -31,7 +32,7 @@ const cards=MAPS.map(m=>{const c=meta.find(c=>c.id===m.id);return {...m,count:c?
 const cardHtml=GROUPS.map(g=>`<section class="map-group" data-group="${g.id}"><div class="group-heading"><span class="eyebrow">${g.id==='science'?'ПОНИМАТЬ И ИССЛЕДОВАТЬ':g.id==='engineering'?'СОЗДАВАТЬ И ОТЛАЖИВАТЬ':'ИЗМЕРЯТЬ И ПРОВЕРЯТЬ'}</span><h2>${escape(g.title)}</h2></div><div class="grid">${cards.filter(m=>m.group===g.id).map(m=>`<article class="card"><span class="number">${escape(m.count)}</span><h3>${escape(m.title)}</h3><p>${escape(m.description)}</p><p class="progress" id="progress-${m.id}">Загружаем локальные отметки…</p><a class="action" href="../${m.path}">Открыть карту →</a></article>`).join('')}</div></section>`).join('');
 const journey=JSON.parse(await read('data/observatory-path.json'));
 for(const stage of journey.stages)for(const ref of stage.refs){const lesson=courses[ref.map]?.lessons.find(l=>l.id===ref.lesson);if(!lesson)throw Error('Unknown observatory route link '+ref.map+':'+ref.lesson);ref.title=lesson.title;ref.mapTitle=MAPS.find(m=>m.id===ref.map).title;ref.path='../'+MAPS.find(m=>m.id===ref.map).path+'#lesson='+encodeURIComponent(ref.lesson);}
-const hub=(await read('hub-template.html')).replace('__CARDS__',cardHtml).replace('__APP__',hubApp).replace('__HUB_DATA__',safe({cards:cards.map(m=>({id:m.id})),journey}));
+const hub=(await read('hub-template.html')).replace('__CARDS__',cardHtml).replace('__APP__',hubApp).replace('__HUB_DATA__',safe({cards:cards.map(m=>({id:m.id})),journey,backupSchema:await buildBackupSchema()}));
 await fs.mkdir(path.join(repo,'maps'),{recursive:true});await fs.writeFile(path.join(repo,'maps/index.html'),hub);
 await fs.writeFile(path.join(root,'data/build-summary.json'),JSON.stringify(meta,null,2)+'\n');
 await buildRadioGuide();
