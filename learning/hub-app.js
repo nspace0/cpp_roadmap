@@ -1,3 +1,4 @@
+import {mountBackup} from './progress-backup/app.mjs';
 import {MAPS,storageKey} from './catalog.mjs';
 import {esc} from './scope-kit.mjs';
 const data=JSON.parse(document.getElementById('hub-data').textContent);
@@ -8,3 +9,5 @@ function refresh(){for(const m of MAPS){const el=document.getElementById('progre
 }
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.querySelectorAll('[data-group]').forEach(s=>s.hidden=b.dataset.filter!=='all'&&s.dataset.group!==b.dataset.filter);}));
 refresh();window.addEventListener('storage',refresh);window.addEventListener('pageshow',refresh);
+
+mountBackup(data.backupSchema, refresh);

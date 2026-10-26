@@ -1,0 +1,64 @@
+name: Verify learning labs and backups
+on:
+  push:
+    branches: [main, 'fix/gdb-live-and-progress-backup']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  live-gdb:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Linux tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gdb gdbserver g++ cmake ninja-build nasm
+      - name: Extract published archive and verify sources
+        run: |
+          python3 learning/developer-labs/build.py
+          git diff --exit-code -- cpp-tools/labs.zip
+          python3 -m zipfile -e cpp-tools/labs.zip /tmp/roadmap-labs
+      - name: Run live GDB assertions
+        run: python3 learning/developer-labs/verify-live.py --labs /tmp/roadmap-labs/cpp-devtools-labs --output gdb-verification
+      - name: Build CMake and NASM exercises
+        run: |
+          cmake -S /tmp/roadmap-labs/cpp-devtools-labs/gdb -B /tmp/gdb-build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+          cmake --build /tmp/gdb-build
+          for project in starter asm-pair; do
+            cmake -S /tmp/roadmap-labs/cpp-devtools-labs/$project -B /tmp/build-$project -G Ninja -DCMAKE_BUILD_TYPE=Debug
+            cmake --build /tmp/build-$project
+            ctest --test-dir /tmp/build-$project --output-on-failure --no-tests=error
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-gdb-evidence
+          path: gdb-verification/
+          retention-days: 30
+
+  progress-backup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test tools
+        working-directory: learning/progress-backup/browser
+        run: npm ci && npx playwright install --with-deps chromium firefox
+      - name: Unit and curriculum checks
+        run: node --test learning/check.mjs learning/check-developer-courses.mjs learning/nms/books-check.cjs learning/radio-build/check.mjs learning/progress-backup/check.mjs
+      - name: Isolated browser transfer tests
+        working-directory: learning/progress-backup/browser
+        run: npm test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: progress-backup-browser-evidence
+          path: learning/progress-backup/browser/results/
+          retention-days: 30
