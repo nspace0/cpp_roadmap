@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "results": [
+    "Chromium: export downloads a portable JSON without changing progress",
+    "Chromium → Firefox: preview, backup of destination, cancel, confirm, partial restore",
+    "Old editor is blocked until reload after restore from another tab",
+    "Malformed and future files do not write localStorage",
+    "Legacy standalone C++ JSON imports and opens in original reader",
+    "Desktop and mobile layout captured; no horizontal overflow"
+  ]
+}

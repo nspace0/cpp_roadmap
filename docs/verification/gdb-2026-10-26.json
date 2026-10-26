@@ -1,0 +1,221 @@
+{
+  "startedAt": "2026-10-26T08:59:48.833003+00:00",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "checks": [
+    {
+      "name": "preflight",
+      "lessons": [
+        "CT04.1"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "stepping-stack",
+      "lessons": [
+        "CT04.1",
+        "CT04.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "conditional-ignore",
+      "lessons": [
+        "CT04.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "breakpoint-commands",
+      "lessons": [
+        "CT04.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "memory-values",
+      "lessons": [
+        "CT05.1",
+        "CT05.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "watchpoint",
+      "lessons": [
+        "CT05.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "instructions-abi",
+      "lessons": [
+        "CT06.1"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "optimization-gdb-lab",
+      "lessons": [
+        "CT06.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "optimization-lab-Og",
+      "lessons": [
+        "CT06.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "optimization-lab-O2",
+      "lessons": [
+        "CT06.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "throw-catch",
+      "lessons": [
+        "CT06.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "abort-signal",
+      "lessons": [
+        "CT06.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "core-create",
+      "lessons": [
+        "CT07.1"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "core-read",
+      "lessons": [
+        "CT07.1"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "threads",
+      "lessons": [
+        "CT07.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "fork-exec",
+      "lessons": [
+        "CT07.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "attach-detach",
+      "lessons": [
+        "CT07.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "batch-original",
+      "lessons": [
+        "CT08.1"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "batch-negative",
+      "lessons": [
+        "CT08.1"
+      ],
+      "status": "passed",
+      "returncode": 1
+    },
+    {
+      "name": "python-command",
+      "lessons": [
+        "CT08.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "gdbserver-stdio",
+      "lessons": [
+        "CT08.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "reverse",
+      "lessons": [
+        "CT09.2"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "intentional-range-bug",
+      "lessons": [
+        "CT09.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    },
+    {
+      "name": "regression-original",
+      "lessons": [
+        "CT09.3"
+      ],
+      "status": "passed",
+      "returncode": 1
+    },
+    {
+      "name": "regression-corrected",
+      "lessons": [
+        "CT09.3"
+      ],
+      "status": "passed",
+      "returncode": 0
+    }
+  ],
+  "limitations": [
+    "No user completion status is written.",
+    "No interactive TUI visual inspection.",
+    "No external SSH host, rr, systemd crash collector or user WSL/Kubuntu installation.",
+    "No Windows/MSVC/MASM/WinDbg or Intel i5-12400F-specific validation."
+  ],
+  "gdb": "GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1",
+  "g++": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "gdbserver": "GNU gdbserver (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1",
+  "status": "passed",
+  "finishedAt": "2026-10-26T09:00:18.940010+00:00"
+}
